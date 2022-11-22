@@ -1,18 +1,17 @@
 <div class="container">
   <h1>My floaties</h1>
 
-  <% @floaties.each do |floaty| %>
-    <% if @floaty.photo %>
-      <%= cl_image_tag @floaty.photo.key, height: 300, width: 400, crop: :fill %>
-    <% else %>
-      
+  <div class="card-grid">
+    <% @floaties.each do |floaty| %>
+      <%= link_to floaty_path(floaty), :class => "card-floaty" do %>
+        <% if floaty.photo %>
+          <%= cl_image_tag floaty.photo.key, height: 300, width: 400, crop: :fill %>
+        <% else %>
+          <%= image_tag "rubber_duck.jpg" %>
+        <% end %>
+        <h3><%= floaty.title %></h3>
+        <p><%= floaty.price %></p>
+      <% end %>
     <% end %>
-    <h3><%= floaty.title %></h3>
-    <p><%= floaty.category %></p>
-    <p><%= floaty.details %></p>
-    <p><%= floaty.price %></p>
-    <p><%= floaty.city %></p>
-    <p><%= floaty.address %></p>
-    <%= link_to "SEE DETAILS", floaty_path(floaty), class: "btn btn-ghost-yellow"%>
-  <% end %>
+  </div>
 </div>
