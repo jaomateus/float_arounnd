@@ -1,4 +1,5 @@
-<h1>Floaty: <%= @floaty.title %></h1>
+<div class="container">
+  <h1>Floaty: <%= @floaty.title %></h1>
 
   <h3><%= @floaty.title %></h3>
   <p>Category:<%= @floaty.category %></p>
@@ -7,3 +8,4 @@
   <p>City:<%= @floaty.city %></p>
   <p>Address:<%= @floaty.address %></p>
   <%= link_to "BOOK", new_booking_path(@floaty), class: "btn btn-ghost-yellow"%>
+</div>

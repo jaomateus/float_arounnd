@@ -25,5 +25,4 @@ class FloatiesController < ApplicationController
   def floaty_params
     params.require(:floaty).permit(:title, :category, :details, :price, :city, :address)
   end
-
 end
