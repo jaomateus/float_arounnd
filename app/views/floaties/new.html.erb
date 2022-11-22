@@ -1,0 +1,13 @@
+<div class="container">
+  <h1>Add new floaty</h1>
+
+  <%= simple_form_for @floaty do |f| %>
+    <%= f.input :title %>
+    <%= f.input :category, collection: ["Canoe", "Floating house", "Paddle", "Floatie", "Board"] %>
+    <%= f.input :details %>
+    <%= f.input :city %>
+    <%= f.input :address %>
+    <%= f.input :price %>
+    <%= f.submit  %>
+  <% end %>
+</div>
