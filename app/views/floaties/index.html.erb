@@ -3,7 +3,7 @@
 
   <div class="card-grid">
     <% @floaties.each do |floaty| %>
-        <%= link_to floaty_path(floaty), :class => "card-floaty" do %>
+        <%= link_to floaty_path(floaty), class: "card-floaty" do %>
           <%= image_tag "rubber_duck.jpg" %>
           <h3><%= floaty.title %></h3>
           <p><%= floaty.price %></p>
