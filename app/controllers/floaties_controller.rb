@@ -1,0 +1,2 @@
+class FloatiesController < ApplicationController
+end
