@@ -1,3 +1,4 @@
+
 class User < ApplicationRecord
   has_many :floaties
   has_many :bookings
