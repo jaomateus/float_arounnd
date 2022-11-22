@@ -6,5 +6,6 @@ class FloatiesController < ApplicationController
   def show
     @floaty = Floaty.find(params[:id])
   end
+
   
 end
