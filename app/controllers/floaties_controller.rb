@@ -3,10 +3,10 @@ class FloatiesController < ApplicationController
     @floaties = Floaty.all
   end
 
-   def show
+  def show
     @floaty = Floaty.find(params[:id])
   end
-  
+
   def new
     @floaty = Floaty.new
   end
@@ -25,5 +25,4 @@ class FloatiesController < ApplicationController
   def floaty_params
     params.require(:floaty).permit(:title, :category, :details, :price, :city, :address)
   end
-
 end
