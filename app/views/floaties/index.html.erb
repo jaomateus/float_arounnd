@@ -2,6 +2,11 @@
   <h1>My floaties</h1>
 
   <% @floaties.each do |floaty| %>
+    <% if @floaty.photo %>
+      <%= cl_image_tag @floaty.photo.key, height: 300, width: 400, crop: :fill %>
+    <% else %>
+      
+    <% end %>
     <h3><%= floaty.title %></h3>
     <p><%= floaty.category %></p>
     <p><%= floaty.details %></p>
