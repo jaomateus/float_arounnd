@@ -3,10 +3,10 @@ class FloatiesController < ApplicationController
     @floaties = Floaty.all
   end
 
-   def show
+  def show
     @floaty = Floaty.find(params[:id])
   end
-  
+
   def new
     @floaty = Floaty.new
   end

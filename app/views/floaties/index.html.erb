@@ -1,11 +1,13 @@
-<h1>My floaties</h1>
+<div class="container">
+  <h1>My floaties</h1>
 
-<% @floaties.each do |floaty| %>
-  <h3><%= floaty.title %></h3>
-  <p><%= floaty.category %></p>
-  <p><%= floaty.details %></p>
-  <p><%= floaty.price %></p>
-  <p><%= floaty.city %></p>
-  <p><%= floaty.address %></p>
-  <%= link_to "SEE DETAILS", floaty_path(floaty), class: "btn btn-ghost-yellow"%>
-<% end %>
+  <div class="card-grid">
+    <% @floaties.each do |floaty| %>
+        <%= link_to floaty_path(floaty), :class => "card-floaty" do %>
+          <%= image_tag "rubber_duck.jpg" %>
+          <h3><%= floaty.title %></h3>
+          <p><%= floaty.price %></p>
+        <% end %>
+    <% end %>
+  </div>
+</div>
