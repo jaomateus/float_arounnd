@@ -9,3 +9,15 @@
   align-items: center;
   text-align: center;
 }
+
+.card-grid-booking {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 16px;
+}
+
+.card-grid-cell-booking {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}

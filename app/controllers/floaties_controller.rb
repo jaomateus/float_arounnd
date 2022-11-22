@@ -13,6 +13,7 @@ class FloatiesController < ApplicationController
 
   def create
     @floaty = Floaty.new(floaty_params)
+    @floaty.user = current_user
     if @floaty.save
       redirect_to floaty_path(@floaty.id)
     else
@@ -26,3 +27,5 @@ class FloatiesController < ApplicationController
     params.require(:floaty).permit(:title, :category, :details, :price, :city, :address)
   end
 end
+
+
