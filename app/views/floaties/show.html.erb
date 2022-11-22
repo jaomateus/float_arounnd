@@ -1,0 +1,9 @@
+<h1>Floaty: <%= @floaty.title %></h1>
+
+  <h3><%= @floaty.title %></h3>
+  <p>Category:<%= @floaty.category %></p>
+  <p>Details:<%= @floaty.details %></p>
+  <p>$<%= @floaty.price %></p>
+  <p>City:<%= @floaty.city %></p>
+  <p>Address:<%= @floaty.address %></p>
+  <%= link_to "BOOK", new_floaty_path(floaty), class: "btn btn-ghost-yellow"%>
