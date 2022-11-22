@@ -1,11 +1,13 @@
-<h1>My floaties</h1>
+<div class="container">
+  <h1>My floaties</h1>
 
-<% @floaties.each do |floaty| %>
-  <h3><%= floaty.title %></h3>
-  <p><%= floaty.category %></p>
-  <p><%= floaty.details %></p>
-  <p><%= floaty.price %></p>
-  <p><%= floaty.city %></p>
-  <p><%= floaty.address %></p>
-  <%= link_to "SEE DETAILS", floaty_path(floaty), class: "btn btn-ghost-yellow"%>
-<% end %>
+  <% @floaties.each do |floaty| %>
+    <h3><%= floaty.title %></h3>
+    <p><%= floaty.category %></p>
+    <p><%= floaty.details %></p>
+    <p><%= floaty.price %></p>
+    <p><%= floaty.city %></p>
+    <p><%= floaty.address %></p>
+    <%= link_to "SEE DETAILS", floaty_path(floaty), class: "btn btn-ghost-yellow"%>
+  <% end %>
+</div>
