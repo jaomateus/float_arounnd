@@ -9,8 +9,11 @@
           <%= image_tag "rubber_duck.jpg" %>
         <% end %>
         <div class="d-flex justify-content-between align-itmes-center">
-          <h3><%= floaty.title %></h3>
-          <p>$<%= floaty.price %></p>
+          <div>
+            <h3><%= floaty.title %></h3>
+            <p>Rent me in <%= floaty.city %> for $<%= floaty.price %></p>
+
+          </div>
         </div>
       <% end %>
     <% end %>

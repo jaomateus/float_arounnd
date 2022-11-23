@@ -1,7 +1,11 @@
 .card-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 16px;
+  grid-gap: 28px;
+
+  a {
+    text-decoration: none;
+  }
 }
 
 .card-grid-booking {
