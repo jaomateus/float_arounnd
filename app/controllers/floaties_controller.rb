@@ -6,8 +6,8 @@ class FloatiesController < ApplicationController
       {
         lat: floaty.latitude,
         lng: floaty.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { flat: floaty }),
-        image_url: helpers.asset_url("marker_logo.png")
+        # info_window: render_to_string(partial: "info_window", locals: { flat: floaty }),
+        # image_url: helpers.asset_url("marker_logo.png")
       }
     end
   end
