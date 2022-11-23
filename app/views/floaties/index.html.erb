@@ -6,7 +6,7 @@
     <% @floaties.each do |floaty| %>
       <%= link_to floaty_path(floaty), :class => "card-floaty" do %>
         <% if floaty.photo.attached %>
-          <%= cl_image_tag("eznprkvwgdabhzpidwqe", width: 400, height: 300, crop: :fill) %>
+          <%= cl_image_tag @article.photo.key, height: 300, width: 400, crop: :fill %>
         <% else %>
           <%= image_tag "rubber_duck.jpg" %>
         <% end %>
