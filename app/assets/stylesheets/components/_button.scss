@@ -13,15 +13,15 @@
 }
 
 .btn-flat {
-  color: white;
+  color: $black;
   padding: 8px 24px;
   border-radius: 4px;
-  background: #670BFF;
+  background: $yellow-dark;
   transition: background 0.3s ease;
 }
 
 .btn-flat:hover {
-  background: #4D04C4;
+  background: $black;
   color: white;
 }
 
