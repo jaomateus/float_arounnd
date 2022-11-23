@@ -1,6 +1,13 @@
 class FloatiesController < ApplicationController
   def index
     @floaties = Floaty.all
+    # The `geocoded` scope filters only flats with coordinates
+    @markers = @floaties.geocoded.map do |floaty|
+      {
+        lat: floaty.latitude,
+        lng: floaty.longitude
+      }
+    end
   end
 
   def show
