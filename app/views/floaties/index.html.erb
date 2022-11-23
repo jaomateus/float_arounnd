@@ -3,11 +3,15 @@
 
   <div class="card-grid">
     <% @floaties.each do |floaty| %>
-        <%= link_to floaty_path(floaty), class: "card-floaty" do %>
+      <%= link_to floaty_path(floaty), :class => "card-floaty" do %>
+        <% if floaty.photo %>
+          <%= cl_image_tag floaty.photo.key, height: 300, width: 400, crop: :fill %>
+        <% else %>
           <%= image_tag "rubber_duck.jpg" %>
-          <h3><%= floaty.title %></h3>
-          <p><%= floaty.price %></p>
         <% end %>
+        <h3><%= floaty.title %></h3>
+        <p><%= floaty.price %></p>
+      <% end %>
     <% end %>
   </div>
 </div>

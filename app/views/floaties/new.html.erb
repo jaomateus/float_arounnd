@@ -3,6 +3,7 @@
 
   <%= simple_form_for @floaty do |f| %>
     <%= f.input :title %>
+    <%= f.input :photo, as: :file %>
     <%= f.input :category, collection: ["Canoe", "Floating house", "Paddle", "Floatie", "Board"] %>
     <%= f.input :details %>
     <%= f.input :city %>
