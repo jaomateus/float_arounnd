@@ -14,7 +14,7 @@ class FloatiesController < ApplicationController
   def create
     @floaty = Floaty.new(floaty_params)
     if @floaty.save
-      redirect_to floaty_path(@floaty.id)
+      redirect_to floaty_path(@floaty)
     else
       render :new, status: :unprocessable_entity
     end
