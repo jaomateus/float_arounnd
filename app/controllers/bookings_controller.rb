@@ -15,7 +15,7 @@ class BookingsController < ApplicationController
     @booking.floaty = @floaty
     @booking.user = current_user
     if @booking.save
-      redirect_to floaties_path
+      redirect_to floaty_path(@floaty)
     else
       render :new
     end
