@@ -10,3 +10,18 @@
       height: 60%;
     }
   }
+
+
+  .card-floaty-show {
+    max-height: 500px;
+    border:  3px solid rgb(250, 250, 127);
+    border-radius: 15px;
+    overflow: hidden;
+    background: white;
+    // box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      img {
+        object-fit: cover;
+        width: 100%;
+        height: 200px;
+      }
+   }
