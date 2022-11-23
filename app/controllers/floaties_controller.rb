@@ -5,7 +5,9 @@ class FloatiesController < ApplicationController
     @markers = @floaties.geocoded.map do |floaty|
       {
         lat: floaty.latitude,
-        lng: floaty.longitude
+        lng: floaty.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { flat: floaty }),
+        image_url: helpers.asset_url("marker_logo.png")
       }
     end
   end
