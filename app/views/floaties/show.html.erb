@@ -17,7 +17,11 @@
     </div>
 
     <div class="card-floaty-show">
+      <% if @floaty.photo.attached? %>
+        <%= cl_image_tag @floaty.photo.key %>
+      <% else %>
         <%= image_tag "rubber_duck.jpg" %>
+      <% end %>
     </div>
 
     <div class="card-floaty-show-text">
