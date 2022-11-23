@@ -2,6 +2,10 @@
   justify-content: space-between;
   background: #ffbc00;
   border-bottom: 1px solid black;
+
+  img {
+  object-fit: cover;
+  }
 }
 
 .navbar-lewagon .navbar-collapse {
