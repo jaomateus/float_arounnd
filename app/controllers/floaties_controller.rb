@@ -15,7 +15,7 @@ class FloatiesController < ApplicationController
     @floaty = Floaty.new(floaty_params)
     @floaty.user = current_user
     if @floaty.save
-      redirect_to floaty_path(@floaty.id)
+      redirect_to floaty_path(@floaty)
     else
       render :new, status: :unprocessable_entity
     end
@@ -27,5 +27,3 @@ class FloatiesController < ApplicationController
     params.require(:floaty).permit(:title, :category, :details, :price, :city, :address, :photo)
   end
 end
-
-
