@@ -1,13 +1,13 @@
 <div class="container">
   <h1>My floaties</h1>
   <%= link_to "ADD YOUR FLOATY", new_floaty_path, class: "btn btn-ghost-yellow"%>
-
+  <%# <h1>Test</h1> %>
 
   <div class="card-grid">
     <% @floaties.each do |floaty| %>
       <%= link_to floaty_path(floaty), :class => "card-floaty" do %>
-        <% if floaty.photo.attached %>
-          <%= cl_image_tag @article.photo.key, height: 300, width: 400, crop: :fill %>
+        <% if floaty.photo.attached? %>
+          <%= cl_image_tag floaty.photo.key, height: 300, width: 400, crop: :fill %>
         <% else %>
           <%= image_tag "rubber_duck.jpg" %>
         <% end %>
