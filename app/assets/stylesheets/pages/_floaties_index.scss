@@ -2,18 +2,6 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 16px;
-    img {
-      height: 150px;
-      border-radius: 15px;
-      object-fit: cover;
-      width: 100%;
-    }
-}
-
-.card-grid-cell {
-  justify-content: center;
-  align-items: center;
-  text-align: center;
 }
 
 .card-grid-booking {

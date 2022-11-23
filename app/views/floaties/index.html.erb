@@ -1,7 +1,4 @@
 <div class="container">
-  <h1>My floaties</h1>
-  <%= link_to "ADD YOUR FLOATY", new_floaty_path, class: "btn btn-ghost-yellow"%>
-  <%# <h1>Test</h1> %>
 
   <div class="card-grid">
     <% @floaties.each do |floaty| %>
@@ -11,8 +8,10 @@
         <% else %>
           <%= image_tag "rubber_duck.jpg" %>
         <% end %>
-        <h3><%= floaty.title %></h3>
-        <p><%= floaty.price %></p>
+        <div class="d-flex justify-content-between align-itmes-center">
+          <h3><%= floaty.title %></h3>
+          <p>$<%= floaty.price %></p>
+        </div>
       <% end %>
     <% end %>
   </div>
