@@ -9,6 +9,6 @@ export default class extends Controller {
       strings: ['Search for anything that stays above water...'],
       typeSpeed: 50,
       loop: true
-  })
-}
+    })
+  }
 }

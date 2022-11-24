@@ -21,6 +21,12 @@ class FloatiesController < ApplicationController
 
   def show
     @floaty = Floaty.find(params[:id])
+    @markers = [{
+      lat: @floaty.latitude,
+      lng: @floaty.longitude,
+      info_window: render_to_string(partial: "info_window", locals: { floaty: @floaty }),
+      image_url: helpers.asset_url("quaqua.png")
+    }]
   end
 
   def new
@@ -35,6 +41,7 @@ class FloatiesController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+
   end
 
   private
