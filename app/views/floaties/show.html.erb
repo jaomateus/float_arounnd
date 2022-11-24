@@ -4,17 +4,11 @@
   </div>
 
   <div class="col-lg-6 mr-5">
-
-    <div class="card-floaty-show d-flex justify-content-between align-items-center my-4 mt-5">
-      <div>
-        <h3><%= @floaty.title %></h3>
-        <p><strong><%= @floaty.category %></strong></p>
+      <div class="card-floaty-show d-flex justify-content-between align-items-center my-4 mt-5">
+        <div>
+          <%= link_to "Book", new_floaty_booking_path(@floaty), class:"btn btn-flat" %>
+        </div>
       </div>
-      <span class="mb-2 d-block"><small><em class="text-muted"><%= "This floaty doesnt't have any bookings yet!" if @floaty.bookings.empty? %></em></small></span>
-      <div>
-        <%= link_to "Book", new_floaty_booking_path(@floaty), class:"btn btn-flat" %>
-      </div>
-    </div>
 
     <div class="card-floaty-show">
       <% if @floaty.photo.attached? %>
@@ -22,6 +16,10 @@
       <% else %>
         <%= image_tag "rubber_duck.jpg" %>
       <% end %>
+    </div>
+
+    <div class="card-floaty-show">
+      <p>This floaty is offered by <%= @floaty.user.first_name %>. "<%= @floaty.details %>"</p>
     </div>
 
     <div class="card-floaty-show-text">
@@ -33,15 +31,14 @@
         <%# <p>City: <strong><%= @floaty.city %></strong></p>
         <p>Address: <strong><%= @floaty.address %></strong></p>
         <p>Category: <strong><%= @floaty.category %></strong></p>
-        <p>Details: <strong><%= @floaty.details %></strong></p>
       </div>
+
     </div>
   </div>
 
    <div class="col-1">
   </div>
 
-  <div class="col-4 map">
-    <h1>MAP???</h1>
+  <div class="col-4 map sticky-top">
   </div>
 </div>
