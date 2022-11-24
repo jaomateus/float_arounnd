@@ -18,33 +18,48 @@
 </div>
 
 
-<div class="container">
-  <div class="card-grid-title">
-    <h2>Float around...the world!</h2>
+<div data-controller="togglemap">
+  <div class="d-flex justify-content-center">
+    <button class="btn btn-flat" data-action="togglemap#toggleTargets">See map</button>
   </div>
-  <div class="card-grid">
-    <% @floaties.each do |floaty| %>
-      <%= link_to floaty_path(floaty), :class => "card-floaty" do %>
-        <% if floaty.photo.attached? %>
-          <%= cl_image_tag floaty.photo.key %>
-        <% else %>
-          <%= image_tag "rubber_duck.jpg" %>
-        <% end %>
-        <div class="d-flex justify-content-between align-itmes-center">
-          <div>
-            <h3><%= floaty.title %></h3>
-            <p>Rent me in !!!!!CITY<%= floaty.price %></p>
+
+  <div data-togglemap-target="grid" class="container">
+    <div class="card-grid-title">
+      <h2>Float around...the world!</h2>
+    </div>
+    <div class="card-grid">
+      <% @floaties.each do |floaty| %>
+        <%= link_to floaty_path(floaty), :class => "card-floaty" do %>
+          <% if floaty.photo.attached? %>
+            <%= cl_image_tag floaty.photo.key %>
+          <% else %>
+            <%= image_tag "rubber_duck.jpg" %>
+          <% end %>
+          <div class="d-flex justify-content-between align-itmes-center">
+            <div>
+              <h3><%= floaty.title %></h3>
+              <p>Rent me in !!!!!CITY<%= floaty.price %></p>
+            </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
+
+  <%# <div style="width: 100vw"> %>
+    <div class="invisible map-area" data-togglemap-target="map">
+      <%= render "map" %>
+    </div>
+  <%# </div> %>
 </div>
 
-<div class="container">
-  <div style="col-4 map width: 90%; height: 400px;"
-        data-controller="map"
-        data-map-markers-value="<%= @markers.to_json %>"
-        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
-</div>
+
+
+
+<%# <div data-controller="togglemap">
+  <button class="btn btn-flat" data-action="togglemap#showTargets">View Map</button>
+  <button class="btn btn-flat" data-action="togglemap#hideTargets">View List</button>
+  <button class="btn btn-flat" data-action="togglemap#toggleTargets">Toggle</button>
+  <p data-togglemap-target="hideable" >This is a card grid</p>
+  <p data-togglemap-target="hideable" hidden>This is a map</p>
+</div> %>
