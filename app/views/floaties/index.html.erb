@@ -1,7 +1,9 @@
+<%# NAVBAR %>
 <div class="banner">
-  <div class="container">
+  <div class="container" >
     <h1><strong>Floaties</strong>!</h1>
     <p><span data-controller="typed-js"></span></p>
+
     <%= form_with url: floaties_path, method: :get, class: "d-flex" do %>
       <div class="search-form-control form-group  flex-grow-1">
         <%= text_field_tag :query,
@@ -9,23 +11,25 @@
           class: "form-control",
           placeholder: "Find a floaty"
         %>
-        <%= submit_tag "Search", class: "btn btn-flat" %>
+        <%= submit_tag "Search", class: "btn btn-flat"  %>
       </div>
     <% end %>
   </div>
 </div>
 
-
+<%# TOGLE MAP/LIST  %>
 <div data-controller="togglemap">
   <div class="d-flex justify-content-center">
     <button class="btn btn-flat" data-action="togglemap#toggleTargets">See map</button>
   </div>
 
+
   <div data-togglemap-target="grid" class="container">
     <div class="card-grid-title">
-      <h2>Float around...the world!</h2>
+      <h2>Float around... <%= params[:query] %></h2>
     </div>
-    <div class="card-grid">
+
+    <div class="card-grid" id="awesome-stuff-here">
       <% @floaties.each do |floaty| %>
         <%= link_to floaty_path(floaty), :class => "card-floaty" do %>
           <% if floaty.photo.attached? %>
@@ -46,20 +50,8 @@
     </div>
   </div>
 
-  <%# <div style="width: 100vw"> %>
-    <div class="invisible map-area" data-togglemap-target="map">
-      <%= render "map" %>
-    </div>
-  <%# </div> %>
+  <%# MAP %>
+  <div class="invisible map-area" data-togglemap-target="map">
+    <%= render "map" %>
+  </div>
 </div>
-
-
-
-
-<%# <div data-controller="togglemap">
-  <button class="btn btn-flat" data-action="togglemap#showTargets">View Map</button>
-  <button class="btn btn-flat" data-action="togglemap#hideTargets">View List</button>
-  <button class="btn btn-flat" data-action="togglemap#toggleTargets">Toggle</button>
-  <p data-togglemap-target="hideable" >This is a card grid</p>
-  <p data-togglemap-target="hideable" hidden>This is a map</p>
-</div> %>
