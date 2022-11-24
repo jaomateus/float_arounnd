@@ -15,3 +15,6 @@ application.register("map", MapController)
 
 import TogglemapController from "./togglemap_controller"
 application.register("togglemap", TogglemapController)
+
+import TypedJsController from "./typed_js_controller"
+application.register("typed-js", TypedJsController)
