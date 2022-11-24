@@ -1,2 +1,9 @@
-<h2><%= floaty.title %></h2>
-<p><%= floaty.address %></p>
+
+<div>
+  <div class="map-popup-img">
+    <%= cl_image_tag floaty.photo.key %>
+  </div>
+  <h4><%= floaty.title %></h3>
+  <p>City</p>
+  <p><%= floaty.price %></p>
+</div>
