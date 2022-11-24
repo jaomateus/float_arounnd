@@ -17,6 +17,16 @@
   color: black;
 }
 
+.nav-dropdown-icon {
+  margin-right: 8px;
+  margin-left: 8px;
+  display: flex;
+  align-items: center;
+  i {
+    color: black;
+  }
+}
+
 .nav-link{
   color: black !important;
 }
