@@ -2,6 +2,12 @@ class FloatiesController < ApplicationController
   def index
     # @floaties = Floaty.all
     @floaties = Floaty.geocoded
+    if params[:query].present?
+      sql_query = "title ILIKE :query OR category ILIKE :query OR address ILIKE :query"
+      @floaties = Floaty.geocoded.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @floaties = Floaty.geocoded
+    end
     # The `geocoded` scope filters only flats with coordinates
     @markers = @floaties.map do |floaty|
       {
