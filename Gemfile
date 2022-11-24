@@ -35,6 +35,9 @@ gem "cloudinary"
 
 gem "geocoder"
 
+gem "typedjs-rails", "~> 1.0.4"
+
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
