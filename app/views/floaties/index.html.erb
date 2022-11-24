@@ -3,7 +3,7 @@
 <div class="banner">
   <div class="container">
     <h1><strong>Floaties</strong>!</h1>
-    <p>Search for anything that stays above water...</p>
+    <p><span data-controller="typed-js"></span></p>
     <%= form_with url: floaties_path, method: :get, class: "d-flex" do %>
       <div class="search-form-control form-group  flex-grow-1">
         <%= text_field_tag :query,
