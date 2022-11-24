@@ -1,13 +1,14 @@
 class FloatiesController < ApplicationController
   def index
-    @floaties = Floaty.all
+    # @floaties = Floaty.all
+    @floaties = Floaty.geocoded
     # The `geocoded` scope filters only flats with coordinates
-    @markers = @floaties.geocoded.map do |floaty|
+    @markers = @floaties.map do |floaty|
       {
         lat: floaty.latitude,
         lng: floaty.longitude,
-        # info_window: render_to_string(partial: "info_window", locals: { flat: floaty }),
-        # image_url: helpers.asset_url("marker_logo.png")
+        info_window: render_to_string(partial: "info_window", locals: { floaty: floaty }),
+        image_url: helpers.asset_url("quaqua.png")
       }
     end
   end

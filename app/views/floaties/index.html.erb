@@ -30,10 +30,18 @@
         <div class="d-flex justify-content-between align-itmes-center">
           <div>
             <h3><%= floaty.title %></h3>
-            <p>Rent me in <%= floaty.city %> for $<%= floaty.price %></p>
+            <p>Rent me in !!!!!CITY<%= floaty.price %></p>
           </div>
         </div>
       <% end %>
     <% end %>
+  </div>
+</div>
+
+<div class="container">
+  <div style="col-4 map width: 90%; height: 400px;"
+        data-controller="map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 </div>
