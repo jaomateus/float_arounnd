@@ -1,7 +1,8 @@
-
 <div>
   <div class="map-popup-img">
-    <%= cl_image_tag floaty.photo.key %>
+  <% if floaty.photos.attached? %>
+    <%= cl_image_tag floaty.photos[0].key %>
+  <% end %>
   </div>
   <h4><%= floaty.title %></h3>
   <p>City</p>

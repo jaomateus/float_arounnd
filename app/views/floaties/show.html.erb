@@ -6,36 +6,50 @@
   <div class="col-lg-6 mr-5">
       <div class="card-floaty-show d-flex justify-content-between align-items-center my-4 mt-5">
         <div>
-          <%= link_to "Book", new_floaty_booking_path(@floaty), class:"btn btn-flat" %>
+          <h3><strong><%= @floaty.category %></strong> for <strong>€<%= @floaty.price %></strong> /day</h3>
+          <p>Location: <%= @floaty.address %></p>
+        </div>
+        <div>
+          <%= link_to "Reserve", new_floaty_booking_path(@floaty), class:"btn btn-flat" %>
         </div>
       </div>
 
-    <div class="card-floaty-show">
-      <% if @floaty.photo.attached? %>
-        <%= cl_image_tag @floaty.photo.key %>
-      <% else %>
-        <%= image_tag "rubber_duck.jpg" %>
+    <div class="card-floaty-show carousel slide" id="carouselExampleControls" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <% if @floaty.photos.attached? %>
+          <div class="carousel-item active">
+            <%= cl_image_tag @floaty.photos.first.key, class:"d-block w-100", height: 300, width: 400, crop: :fill %>
+          </div>
+          <% @floaty.photos.drop(1).each do |photo| %>
+            <div class="carousel-item">
+              <%= cl_image_tag photo.key, class:"d-block w-100", height: 300, width: 400, crop: :fill %>
+            </div>
+          <% end %>
+        <% else %>
+          <div class="carousel-item active">
+            <%= image_tag "rubber_duck.jpg", class:"d-block w-100", height: 300, width: 400, crop: :fill %>
+          </div>
+        <% end %>
+      </div>
+
+      <% if @floaty.photos.count > 1 %>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
       <% end %>
     </div>
 
-    <div class="card-floaty-show">
-      <p>This floaty is offered by <%= @floaty.user.first_name %>. "<%= @floaty.details %>"</p>
-    </div>
-
     <div class="card-floaty-show-text">
-      <div class="d-flex justify-content-between">
-        <h3><%= @floaty.title %></h3>
-        <h3>$<%= @floaty.price %></h3>
-      </div>
-      <div>
-        <%# <p>City: <strong><%= @floaty.city %></strong></p>
-        <p>Address: <strong><%= @floaty.address %></strong></p>
-        <p>Category: <strong><%= @floaty.category %></strong></p>
-      </div>
-
+      <p>"<%= @floaty.title %>"</p>
+      <p>"<%= @floaty.details %>"</p>
     </div>
-  </div>
 
+  </div>
    <div class="col-1">
   </div>
 
@@ -43,3 +57,27 @@
     <%= render "map_show" %>
   </div>
 </div>
+
+<%# Reviews %>
+<h2><%= pluralize @floaty.reviews.size, "review" %></h2>
+
+<%# ADD A REVIEW %>
+
+<div data-controller="insert-in-list">
+  <div data-insert-in-list-target="items">
+    <% if @floaty.reviews.blank? %>
+      Be the first to leave a review for <%= @floaty.title %>
+    <% else %>
+      <% @floaty.reviews.each do |review| %>
+        <p><%= review.content %></p>
+      <% end %>
+    <% end %>
+  </div>
+ <%# #RENDER REVIEW FORM %>
+</div>
+
+
+<%= link_to "Back to List", floaties_path %>
+
+<%# FOOTER %>
+<%= render "shared/footer" %>
