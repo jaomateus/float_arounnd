@@ -15,8 +15,11 @@
       </div>
 
     <div class="card-floaty-show">
-      <% if @floaty.photo.attached? %>
-        <%= cl_image_tag @floaty.photo.key %>
+      <% if @floaty.photos %>
+        <%# <%= cl_image_tag @floaty.photos.key %>
+        <% @floaty.photos.each do |photo| %>
+          <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+        <% end %>
       <% else %>
         <%= image_tag "rubber_duck.jpg" %>
       <% end %>
@@ -34,3 +37,27 @@
     <%= render "map_show" %>
   </div>
 </div>
+
+<%# Reviewds %>
+<h2><%= pluralize @floaty.reviews.size, "review" %></h2>
+
+<%# ADD A REVIEW %>
+
+<div data-controller="insert-in-list">
+  <div data-insert-in-list-target="items">
+    <% if @floaty.reviews.blank? %>
+      Be the first to leave a review for <%= @floaty.title %>
+    <% else %>
+      <% @floaty.reviews.each do |review| %>
+        <p><%= review.content %></p>
+      <% end %>
+    <% end %>
+  </div>
+ <%# #RENDER REVIEW FORM %>
+</div>
+
+
+<%= link_to "Back to List", floaties_path %>
+
+<%# FOOTER %>
+<%= render "shared/footer" %>
