@@ -11,6 +11,7 @@ class ReviewsController < ApplicationController
         format.html { render "floaties/show", status: :unprocessable_entity }
         format.json
       end
+    end
   end
 
   # def destroy
