@@ -33,7 +33,7 @@
       <% @floaties.each do |floaty| %>
         <%= link_to floaty_path(floaty), :class => "card-floaty" do %>
           <% if floaty.photos.attached? %>
-            <div class="floaty-card" style="background-image: url(<%= cl_image_path floaty.photo.key %>)">
+            <div class="floaty-card" style="background-image: url(<%= cl_image_path floaty.photos[0].key %>)">
               <i class="fa-solid fa-heart text-light"></i>
             </div>
           <% else %>
