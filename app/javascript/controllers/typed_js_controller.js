@@ -8,7 +8,7 @@ export default class extends Controller {
     new Typed(this.element, {
       strings: ['FLOAT THE WORLD! Float around in...'],
       typeSpeed: 50,
-      loop: false
+      loop: true
     })
   }
 }

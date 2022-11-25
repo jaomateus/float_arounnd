@@ -3,11 +3,15 @@
     <div class="col-12 col-md-6 offset-lg-3">
       <div class="bg-white rounded p-3 shadow">
         <h3>Create a reservation</h3>
+        <div data-controller="total-price">
         <%= simple_form_for [@floaty, @booking] do |f| %>
-          <%= f.input :start_date %>
-          <%= f.input :end_date %>
+          <%= f.input :start_date, as: :date, html5: true, input_html: { "data-target": "total-price.start", "data-action": "select->total-price#calculate"}  %>
+          <%= f.input :end_date, as: :date, html5: true, input_html: { "data-target": "total-price.end", "data-action": "select->total-price#calculate"}  %>
+          <p class="floaty-price" data-total-price-target="text">Price per day: <%= @floaty.price  %></p>
+          <br>
           <%= f.submit "Create a reservation"  %>
         <% end %>
+        </div>
       </div>
     </div>
   </div>
