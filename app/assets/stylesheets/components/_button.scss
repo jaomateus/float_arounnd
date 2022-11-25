@@ -23,6 +23,34 @@
   z-index: 1;
 }
 
+.btn-flat-review {
+  color: $black;
+  padding: 8px 24px;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+  border: 1px solid $gray;
+}
+
+.btn-flat-text {
+  color: $blue;
+  transition: background 0.3s ease;
+  font-size: 18px;
+}
+
+.btn-flat-text:hover {
+  color: $gray;
+  font-weight: strong;
+}
+
+.btn-flat-review:hover {
+  color: $black;
+  padding: 8px 24px;
+  border-radius: 4px;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+  border: 1px solid #000000;
+}
+
 .btn-flat:hover {
   background: $black;
   color: white;
