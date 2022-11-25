@@ -8,7 +8,7 @@ export default class extends Controller {
     new Typed(this.element, {
       strings: ['If it floats... you can rent it!'],
       typeSpeed: 50,
-      loop: false
+      loop: true
     })
   }
 }
