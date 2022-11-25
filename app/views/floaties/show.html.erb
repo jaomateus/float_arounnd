@@ -45,10 +45,39 @@
     </div>
 
     <div class="card-floaty-show-text">
-      <p>"<%= @floaty.title %>"</p>
+      <h3><%= @floaty.title %></h3>
       <p>"<%= @floaty.details %>"</p>
     </div>
 
+    <div class="card-review">
+      <div class="card-floaty-show d-flex justify-content-between my-4 mt-3">
+        <div class="d-flex align-items-start">
+          <i class="fa-solid fa-star"></i>
+          <h3><strong><%= pluralize @floaty.reviews.size, "review" %></strong></h3>
+        </div>
+        <div>
+          <%= link_to "New Review", floaty_reviews_path(@floaty), class:"btn btn-flat-review" %>
+        </div>
+      </div>
+
+      <div data-controller="insert-in-list">
+        <div data-insert-in-list-target="items">
+          <% if @floaty.reviews.blank? %>
+            Be the first to leave a review for <%= @floaty.title %>
+          <% else %>
+            <% @floaty.reviews.each do |review| %>
+              <p><%= review.comment %></p>
+            <% end %>
+          <% end %>
+          <div>
+           <%= render "review" %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex justify-content-center m-5">
+      <%= link_to "See more floaties!", floaties_path, class:"btn btn-flat-text" %>
+    </div>
   </div>
    <div class="col-1">
   </div>
@@ -59,25 +88,8 @@
 </div>
 
 <%# Reviews %>
-<h2><%= pluralize @floaty.reviews.size, "review" %></h2>
 
 <%# ADD A REVIEW %>
-
-<div data-controller="insert-in-list">
-  <div data-insert-in-list-target="items">
-    <% if @floaty.reviews.blank? %>
-      Be the first to leave a review for <%= @floaty.title %>
-    <% else %>
-      <% @floaty.reviews.each do |review| %>
-        <p><%= review.content %></p>
-      <% end %>
-    <% end %>
-  </div>
- <%# #RENDER REVIEW FORM %>
-</div>
-
-
-<%= link_to "Back to List", floaties_path %>
 
 <%# FOOTER %>
 <%= render "shared/footer" %>
