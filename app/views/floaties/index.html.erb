@@ -19,7 +19,7 @@
 <%# TOGLE MAP/LIST  %>
 <div data-controller="togglemap">
   <div class="d-flex justify-content-center">
-    <button class="btn btn-flat" data-action="togglemap#toggleTargets">See map</button>
+    <button class="btn btn-flat" data-togglemap-target="button" data-action="togglemap#toggleTargets">Show map</button>
   </div>
 
 
@@ -36,12 +36,14 @@
               <i class="fa-solid fa-heart text-light"></i>
             </div>
           <% else %>
-            <%= image_tag "rubber_duck.jpg" %>
+            <div>
+            <%= image_tag "rubber_duck.jpg", :class =>"floaty-card" %>
+            </div>
           <% end %>
           <div class="d-flex justify-content-between align-itmes-center">
             <div>
               <h3><%= floaty.title %></h3>
-              <p>Rent me in !!!!!CITY<%= floaty.price %></p>
+              <p>Rent me in for €<%= floaty.price %></p>
             </div>
           </div>
         <% end %>
@@ -53,6 +55,8 @@
   <div class="invisible map-area" data-togglemap-target="map">
     <%= render "map" %>
   </div>
+</div>
+
 </div>
 
 <%# FOOTER %>

@@ -1,5 +1,6 @@
 .map {
   padding: 0 !important;
+
 }
 
 
@@ -11,11 +12,34 @@
     object-fit: contain;
     border-radius: 10px;
     width: 100%;
-    height: 150px;
+    height: 50%;
   }
 }
 
 .mapboxgl-popup-content {
   text-align: center;
-  font-family: "Open Sans", sans-serif;
+  font-family: $body-font;
+  border-radius: 10px;
+}
+
+.info-window {
+  width: 200px;
+  height: 200px;
+    p {
+      margin-top: 12px;
+      margin-bottom: 6px;
+      padding: 0;
+    }
+
+    img {
+      // object-fit: fill;
+      object-fit: cover;
+      width: 250px;
+    }
+}
+
+.btn-info-window {
+  width: 80%;
+  margin-bottom: 12px;
+
 }
