@@ -18,6 +18,9 @@
   border-radius: 4px;
   background: $yellow-dark;
   transition: background 0.3s ease;
+  position: fixed;
+  bottom: 60px;
+  z-index: 1;
 }
 
 .btn-flat:hover {
