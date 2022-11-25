@@ -29,12 +29,12 @@
 }
 
 .nav-link{
-  color: black !important;
+  color: rgb(46, 46, 46) !important;
 }
 
 .nav-button-hover {
   &:hover{
-    border: 1px solid black;
+    border: 1px solid rgb(46, 46, 46);
     border-radius: 4px;
   }
 }
