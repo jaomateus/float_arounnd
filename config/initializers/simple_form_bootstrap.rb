@@ -144,7 +144,6 @@ SimpleForm.setup do |config|
     b.use :hint, wrap_with: { class: 'form-text' }
   end
 
-
   # horizontal forms
   #
   # horizontal default_wrapper

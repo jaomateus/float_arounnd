@@ -23,6 +23,15 @@
   z-index: 1;
 }
 
+.btn-flat-show {
+  color: $black;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: $yellow-dark;
+  transition: background 0.3s ease;
+  bottom: 60px;
+}
+
 .btn-flat-review {
   color: $black;
   padding: 8px 24px;

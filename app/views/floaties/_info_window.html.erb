@@ -1,10 +1,10 @@
-<div>
+<div class="info-window">
   <div class="map-popup-img">
   <% if floaty.photos.attached? %>
     <%= cl_image_tag floaty.photos[0].key %>
   <% end %>
   </div>
-  <h4><%= floaty.title %></h3>
-  <p>City</p>
-  <p><%= floaty.price %></p>
+  <p><strong><%= floaty.title %></strong></p>
+  <p>€ <%= floaty.price %></p>
+  <%= link_to "See details", floaty_path(floaty), class:"btn btn-flat-show btn-info-window" %>
 </div>
