@@ -6,7 +6,7 @@ import Typed from 'typed.js'
 export default class extends Controller {
   connect() {
     new Typed(this.element, {
-      strings: ['Float around in...'],
+      strings: ['If it floats... you can rent it!'],
       typeSpeed: 50,
       loop: false
     })
