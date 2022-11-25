@@ -7,23 +7,48 @@
       <div class="card-floaty-show d-flex justify-content-between align-items-center my-4 mt-5">
         <div>
           <h3><strong><%= @floaty.category %></strong> for <strong>€<%= @floaty.price %></strong> /day</h3>
-          <p>Location:<%= @floaty.address %></p>
+          <p>Location: <%= @floaty.address %></p>
         </div>
         <div>
-          <%= link_to "Book", new_floaty_booking_path(@floaty), class:"btn btn-flat" %>
+          <%= link_to "Reserve", new_floaty_booking_path(@floaty), class:"btn btn-flat" %>
         </div>
       </div>
 
-    <div class="card-floaty-show">
-      <% if @floaty.photos %>
-        <%# <%= cl_image_tag @floaty.photos.key %>
-        <% @floaty.photos.each do |photo| %>
-          <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-        <% end %>
-      <% else %>
-        <%= image_tag "rubber_duck.jpg" %>
-      <% end %>
+    <div class="card-floaty-show carousel slide" id="carouselExampleControls" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+
+          <% if @floaty.photo.attached? %>
+            <%= cl_image_tag @floaty.photo.key, class:"d-block w-100" %>
+          <% else %>
+            <%= image_tag "rubber_duck.jpg" %>
+          <% end %>
+        </div>
+        <div class="carousel-item active">
+          <% if @floaty.photo.attached? %>
+            <%= cl_image_tag @floaty.photo.key, class:"d-block w-100" %>
+          <% if @floaty.photos %>
+            <% @floaty.photos.each do |photo| %>
+              <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+          <% end %>
+
+          <% else %>
+            <%= image_tag "rubber_duck.jpg" %>
+          <% end %>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
+
+
+
 
     <div class="card-floaty-show-text">
       <p>"<%= @floaty.details %>"</p>
