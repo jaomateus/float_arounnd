@@ -16,12 +16,8 @@ application.register("map", MapController)
 import TogglemapController from "./togglemap_controller"
 application.register("togglemap", TogglemapController)
 
+import TotalPriceController from "./total_price_controller"
+application.register("total-price", TotalPriceController)
+
 import TypedJsController from "./typed_js_controller"
 application.register("typed-js", TypedJsController)
-
-// NOT SURE IF ITS THE RIGHT WAY
-import { Application } from '@hotwired/stimulus'
-import ScrollTo from 'stimulus-scroll-to'
-
-const application = Application.start()
-application.register('scroll-to', ScrollTo)
