@@ -7,10 +7,10 @@
       <div class="card-floaty-show d-flex justify-content-between align-items-center my-4 mt-5">
         <div>
           <h3><strong><%= @floaty.category %></strong> for <strong>€<%= @floaty.price %></strong> /day</h3>
-          <p>Location:<%= @floaty.address %></p>
+          <p>Location: <%= @floaty.address %></p>
         </div>
         <div>
-          <%= link_to "Book", new_floaty_booking_path(@floaty), class:"btn btn-flat" %>
+          <%= link_to "Reserve", new_floaty_booking_path(@floaty), class:"btn btn-flat" %>
         </div>
       </div>
 
@@ -19,7 +19,13 @@
         <div class="carousel-item active">
           <% if @floaty.photo.attached? %>
             <%= cl_image_tag @floaty.photo.key, class:"d-block w-100" %>
-            <%= cl_image_tag @floaty.photo.key %>
+          <% else %>
+            <%= image_tag "rubber_duck.jpg" %>
+          <% end %>
+        </div>
+        <div class="carousel-item active">
+          <% if @floaty.photo.attached? %>
+            <%= cl_image_tag @floaty.photo.key, class:"d-block w-100" %>
           <% else %>
             <%= image_tag "rubber_duck.jpg" %>
           <% end %>
@@ -34,6 +40,9 @@
         <span class="visually-hidden">Next</span>
       </button>
     </div>
+
+
+
 
     <div class="card-floaty-show-text">
       <p>"<%= @floaty.details %>"</p>
