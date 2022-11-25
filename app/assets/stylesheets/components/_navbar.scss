@@ -2,6 +2,7 @@
   justify-content: space-between;
   background: #ffbc00;
   border-bottom: 1px solid black;
+  position: sticky;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -9,7 +10,7 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  height: 50px;
+  height: 40px;
   object-fit: cover;
 }
 
