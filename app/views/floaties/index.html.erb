@@ -1,47 +1,57 @@
-
-
+<%# NAVBAR %>
 <div class="banner">
-  <div class="container">
+  <div class="container" >
     <h1><strong>Floaties</strong>!</h1>
-    <p>Search for anything that stays above water...</p>
-    <%= simple_form_for :search, url: root_path, method: :get do |f| %>
-      <div class="search-form-control form-group">
-        <input class="form-control string required" type="text" name="search[query]" id="search_query" />
-        <button name="button" type="submit" class="btn btn-flat">
-          <i class="fas fa-search"></i> Search
-        </button>
+    <p><span data-controller="typed-js"></span></p>
+
+    <%= form_with url: floaties_path, method: :get, class: "d-flex" do %>
+      <div class="search-form-control form-group  flex-grow-1">
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Find a floaty"
+        %>
+        <%= submit_tag "Search", class: "btn btn-flat"  %>
       </div>
     <% end %>
   </div>
 </div>
 
-<div class="container">
-  <div class="card-grid-title">
-    <h2>Float around...the world!</h2>
+<%# TOGLE MAP/LIST  %>
+<div data-controller="togglemap">
+  <div class="d-flex justify-content-center">
+    <button class="btn btn-flat" data-action="togglemap#toggleTargets">See map</button>
   </div>
-  <div class="card-grid">
-    <% @floaties.each do |floaty| %>
-      <%= link_to floaty_path(floaty), :class => "card-floaty" do %>
-        <% if floaty.photo.attached? %>
-          <%= cl_image_tag floaty.photo.key %>
-        <% else %>
-          <%= image_tag "rubber_duck.jpg" %>
-        <% end %>
-        <div class="d-flex justify-content-between align-itmes-center">
-          <div>
-            <h3><%= floaty.title %></h3>
-            <p>Rent me in !!!!!CITY<%= floaty.price %></p>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
-</div>
 
-<div class="container">
-  <div style="col-4 map width: 90%; height: 400px;"
-        data-controller="map"
-        data-map-markers-value="<%= @markers.to_json %>"
-        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+
+  <div data-togglemap-target="grid" class="container">
+    <div class="card-grid-title">
+      <h2>Float around... <%= params[:query] %></h2>
+    </div>
+
+    <div class="card-grid" id="awesome-stuff-here">
+      <% @floaties.each do |floaty| %>
+        <%= link_to floaty_path(floaty), :class => "card-floaty" do %>
+          <% if floaty.photo.attached? %>
+            <div class="floaty-card" style="background-image: url(<%= cl_image_path floaty.photo.key %>)">
+              <i class="heart fa-regular fa-heart text-dark"></i>
+            </div>
+          <% else %>
+            <%= image_tag "rubber_duck.jpg" %>
+          <% end %>
+          <div class="d-flex justify-content-between align-itmes-center">
+            <div>
+              <h3><%= floaty.title %></h3>
+              <p>Rent me in !!!!!CITY<%= floaty.price %></p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <%# MAP %>
+  <div class="invisible map-area" data-togglemap-target="map">
+    <%= render "map" %>
   </div>
 </div>

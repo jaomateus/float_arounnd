@@ -11,11 +11,16 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-          <li class="nav-item active">
+          <li class="nav-item active nav-button-hover">
             <%= link_to "Rent out your floaty", new_floaty_path, class: "nav-link" %>
           </li>
-          <li class="nav-item">
-            <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "nav-link"%>
+           <li class="nav-item nav-dropdown-icon">
+            <i class="fas fa-bars"  data-bs-toggle="dropdown"></i>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">My reservations</a>
+              <a class="dropdown-item" href="#">My favorites</a>
+              <a class="dropdown-item" data-turbo-method="delete" href="#">Log out</a>
+            </div>
           </li>
         <% else %>
         <li class="nav-item active">
