@@ -10,6 +10,9 @@ application.register("address-autocomplete", AddressAutocompleteController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import InsertInListController from "./insert_in_list_controller"
+application.register("insert-in-list", InsertInListController)
+
 import MapController from "./map_controller"
 application.register("map", MapController)
 
@@ -18,10 +21,3 @@ application.register("togglemap", TogglemapController)
 
 import TypedJsController from "./typed_js_controller"
 application.register("typed-js", TypedJsController)
-
-// NOT SURE IF ITS THE RIGHT WAY
-import { Application } from '@hotwired/stimulus'
-import ScrollTo from 'stimulus-scroll-to'
-
-const application = Application.start()
-application.register('scroll-to', ScrollTo)

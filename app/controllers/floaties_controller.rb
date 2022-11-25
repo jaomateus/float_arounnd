@@ -21,11 +21,12 @@ class FloatiesController < ApplicationController
 
   def show
     @floaty = Floaty.find(params[:id])
+    @review = Review.new
     @markers = [{
       lat: @floaty.latitude,
       lng: @floaty.longitude,
-      info_window: render_to_string(partial: "info_window", locals: { floaty: @floaty }),
-      image_url: helpers.asset_url("quaqua.png")
+      info_window: render_to_string(partial: "info_window", locals: { floaty: @floaty })
+      # image_url: helpers.asset_url("quaqua.png")
     }]
   end
 
@@ -41,12 +42,11 @@ class FloatiesController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
-
   end
 
   private
 
   def floaty_params
-    params.require(:floaty).permit(:title, :category, :details, :price, :city, :address, :photo)
+    params.require(:floaty).permit(:title, :category, :details, :price, :city, :address, photos: [])
   end
 end
