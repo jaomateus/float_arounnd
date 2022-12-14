@@ -1,14 +1,24 @@
 <%# BANNER %>
-<div class="banner">
+<div class="landing-bck-img">
+
+  <%# NAVBAR %>
+  <div class="navbar-floaties">
+    <%= render "shared/navbar" %>
+  </div>
+
+  <%# SEARCHBAR %>
   <div class="container" >
+
+    <%# TYPRSCRIPT %>
     <h1><strong><span data-controller="typed-js"></span></strong></h1>
 
+    <%# SEARCH FORM %>
     <%= form_with url: floaties_path, method: :get, class: "d-flex" do %>
       <div class="search-form-control form-group  flex-grow-1">
         <%= text_field_tag :query,
           params[:query],
           class: "form-control",
-          placeholder: "Find a floaty"
+          placeholder: "Find a floaty in ..."
         %>
         <%= submit_tag "Search", class: "btn btn-flat"  %>
       </div>
@@ -16,48 +26,14 @@
   </div>
 </div>
 
-<%# TOGLE MAP/LIST  %>
-<div data-controller="togglemap">
-  <div class="d-flex justify-content-center">
-    <button class="btn btn-flat" data-togglemap-target="button" data-action="togglemap#toggleTargets">Show map</button>
-  </div>
+<div id="floaties-grid">
 
-
-  <div data-togglemap-target="grid" class="container">
-    <div class="card-grid-title">
-      <h2>Float around... <%= params[:query] %></h2>
-    </div>
-
-    <div class="card-grid" id="awesome-stuff-here">
-      <% @floaties.each do |floaty| %>
-        <%= link_to floaty_path(floaty), :class => "card-floaty" do %>
-          <% if floaty.photos.attached? %>
-            <div class="floaty-card" style="background-image: url(<%= cl_image_path floaty.photos.first.key %>)">
-              <i class="fa-solid fa-heart text-light"></i>
-            </div>
-          <% else %>
-            <div>
-            <%= image_tag "rubber_duck.jpg", :class =>"floaty-card" %>
-            </div>
-          <% end %>
-          <div class="d-flex justify-content-between align-itmes-center">
-            <div>
-              <h3><%= floaty.title %></h3>
-              <p>Rent me in for €<%= floaty.price %></p>
-            </div>
-          </div>
-        <% end %>
-      <% end %>
-    </div>
-  </div>
-
-  <%# MAP %>
-  <div class="invisible map-area" data-togglemap-target="map">
-    <%= render "map" %>
-  </div>
-</div>
+<h1>lkjhjkhj</h1>
+<h1>lkjhjkhj</h1>
 
 </div>
 
-<%# FOOTER %>
-<%= render "shared/footer" %>
+
+<a href="#google"></a>
+
+
