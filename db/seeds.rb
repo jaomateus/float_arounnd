@@ -14,16 +14,16 @@ User.first_or_create!(first_name: "Samuel", last_name: "Howard", email: "samuelt
 
 users = User.all
 
-users.each do |user|
-  5.times do
-    Floaty.create!(
-      title: Faker::Creature::Animal.name,
-      category: Faker::Creature::Dog.breed,
-      details: Faker::Creature::Dog.meme_phrase,
-      price: rand(30..100),
-      city: Faker::Address.city,
-      address: Faker::Address.street_name,
-      user: user
-    )
-  end
-end
+# users.each do |user|
+#   5.times do
+#     Floaty.create!(
+#       title: Faker::Creature::Animal.name,
+#       category: Faker::Creature::Dog.breed,
+#       details: Faker::Creature::Dog.meme_phrase,
+#       price: rand(30..100),
+#       city: Faker::Address.city,
+#       address: Faker::Address.street_name,
+#       user: user
+#     )
+#   end
+# end
