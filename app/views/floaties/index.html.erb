@@ -26,14 +26,32 @@
   </div>
 </div>
 
-<div id="floaties-grid">
+<div class="floaties-grid">
+  <div data-togglemap-target="grid" class="container">
+    <div class="card-grid-title">
+      <h2>Float around... <%= params[:query] %></h2>
+    </div>
 
-<h1>lkjhjkhj</h1>
-<h1>lkjhjkhj</h1>
-
+    <div class="card-grid" id="awesome-stuff-here">
+      <% @floaties.each do |floaty| %>
+        <%= link_to floaty_path(floaty), :class => "card-floaty" do %>
+          <% if floaty.photos.attached? %>
+            <div class="floaty-card" style="background-image: url(<%= cl_image_path floaty.photos.first.key %>)">
+              <i class="fa-solid fa-heart text-light"></i>
+            </div>
+          <% else %>
+            <div>
+            <%= image_tag "rubber_duck.jpg", :class =>"floaty-card" %>
+            </div>
+          <% end %>
+          <div class="d-flex justify-content-between align-itmes-center">
+            <div>
+              <h3><%= floaty.title %></h3>
+              <p>Rent me in for €<%= floaty.price %></p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>
-
-
-<a href="#google"></a>
-
-
