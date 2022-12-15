@@ -14,7 +14,7 @@ class FloatiesController < ApplicationController
         lat: floaty.latitude,
         lng: floaty.longitude,
         info_window: render_to_string(partial: "info_window", locals: { floaty: floaty }),
-        image_url: helpers.asset_url("quaqua.png")
+        # image_url: helpers.asset_url("quaqua.png")
       }
     end
   end

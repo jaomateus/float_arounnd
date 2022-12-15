@@ -15,9 +15,36 @@
       font-weight: bold;
       margin-bottom: 35px;
     }
-
   }
 }
+
+.map-container {
+  display: flex;
+  justify-content: space-between;
+  width: 150px;
+  height: 60px;
+  border-radius: 50px;
+  background-color: #ffbc00;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  align-items: center;
+  color: black;
+  padding: 15px;
+  outline: black solid .5px;
+
+  h3 {
+    margin: 0;
+    font-size: 18px;
+  }
+
+  .map-symbol {
+    color: black;
+    font-size: 30px;
+  }
+}
+
+
 
 // .banner h1 {
 //   margin: 0;

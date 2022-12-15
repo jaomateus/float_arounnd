@@ -1,3 +1,10 @@
+// GRID
+.floaties-grid {
+  height: 100vh;
+  padding-top: 30px;
+}
+
+
 .card-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -30,6 +37,15 @@
   margin-bottom: 50px;
   font-weight: 700;
 }
+
+
+// MAP
+
+.results-map {
+  height: 100vh;
+  
+}
+
 
 .map-area {
   width: 100%;

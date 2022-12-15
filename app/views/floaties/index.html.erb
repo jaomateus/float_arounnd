@@ -1,39 +1,72 @@
-<%# BANNER %>
-<div class="landing-bck-img">
-
-  <%# NAVBAR %>
-  <div class="navbar-floaties">
-    <%= render "shared/navbar" %>
-  </div>
-
-  <%# SEARCHBAR %>
-  <div class="container" >
-
-    <%# TYPRSCRIPT %>
-    <h1><strong><span data-controller="typed-js"></span></strong></h1>
-
-    <%# SEARCH FORM %>
-    <%= form_with url: floaties_path, method: :get, class: "d-flex" do %>
-      <div class="search-form-control form-group  flex-grow-1">
-        <%= text_field_tag :query,
-          params[:query],
-          class: "form-control",
-          placeholder: "Find a floaty in ..."
-        %>
-        <%= submit_tag "Search", class: "btn btn-flat"  %>
+<html>
+    %# BANNER %>
+  <div class="landing-bck-img">
+    <%# NAVBAR %>
+    <div class="navbar-floaties">
+      <%= render "shared/navbar" %>
+    </div>
+    <%# SEARCHBAR %>
+    <div class="container" >
+      <%# TYPRSCRIPT %>
+      <h1><strong><span data-controller="typed-js"></span></strong></h1>
+      <%# SEARCH FORM %>
+      <%= form_with url: floaties_path, method: :get, class: "d-flex" do %>
+        <div class="search-form-control form-group  flex-grow-1">
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Find a floaty in ..."
+          %>
+          <%= submit_tag "Search", class: "btn btn-flat"  %>
+        </div>
+      <% end %>
+    </div>
+    <div class="map-container">
+      <div>
+        <h3>See map</h3>
       </div>
-    <% end %>
+      <div>
+        <i class="fa-regular fa-map map-symbol"></i>
+      </div>
+    </div>
   </div>
-</div>
 
-<div id="floaties-grid">
+  <%# SEARCH CARD GRID %>
+  <div class="floaties-grid">
+    <div data-togglemap-target="grid" class="container">
+      <div class="card-grid-title">
+        <% if params[:query] %>
+          <h2>Float around...<%= " " + params[:query] + "!" %></h2>
+        <% else %>
+          <h2>Float around... the world!  <%= params[:query] %></h2>
+        <% end %>
+      </div>
 
-<h1>lkjhjkhj</h1>
-<h1>lkjhjkhj</h1>
+      <div class="card-grid" id="awesome-stuff-here">
+        <% @floaties.each do |floaty| %>
+          <%= link_to floaty_path(floaty), :class => "card-floaty" do %>
+            <% if floaty.photos.attached? %>
+              <div class="floaty-card" style="background-image: url(<%= cl_image_path floaty.photos.first.key %>)">
+                <i class="fa-solid fa-heart text-light"></i>
+              </div>
+            <% else %>
+              <div>
+              <%= image_tag "rubber_duck.jpg", :class =>"floaty-card" %>
+              </div>
+            <% end %>
+            <div class="d-flex justify-content-between align-itmes-center">
+              <div>
+                <h3><%= floaty.title %></h3>
+                <p>Rent me in for €<%= floaty.price %></p>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 
-</div>
-
-
-<a href="#google"></a>
-
-
+  <div class="results-map">
+    <%= render "map" %>
+  </div>
+</html>
