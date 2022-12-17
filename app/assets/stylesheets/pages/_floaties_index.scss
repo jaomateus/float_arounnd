@@ -1,51 +1,8 @@
-// GRID
-.floaties-grid {
-  height: 100vh;
-  padding-top: 30px;
-}
-
-
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 28px;
-
-  a {
-    text-decoration: none;
-  }
-}
-
-.card-grid-booking {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 16px;
-}
-
-.card-grid-cell-booking {
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.card-grid-title {
-  margin-top: 90px;
-}
-
-.card-grid-title h2 {
-  color: $black;
-  font-size: 28px;
-  margin-bottom: 50px;
-  font-weight: 700;
-}
-
-
 // MAP
 
 .results-map {
   height: 100vh;
-  
 }
-
 
 .map-area {
   width: 100%;

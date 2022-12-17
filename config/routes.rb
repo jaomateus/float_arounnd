@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "floaties#index"
-
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  root to: "pages#home"
 
   resources :floaties, only: [:index, :show, :new, :create] do
     resources :reviews, only: :create
@@ -11,6 +9,5 @@ Rails.application.routes.draw do
 
   resources :bookings, only: [:index]
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  get "floatiesmap", to: "pages#map_all"
 end

@@ -16,6 +16,9 @@ application.register("insert-in-list", InsertInListController)
 import MapController from "./map_controller"
 application.register("map", MapController)
 
+import NavbarDropdownController from "./navbar_dropdown_controller"
+application.register("navbar-dropdown", NavbarDropdownController)
+
 import TogglemapController from "./togglemap_controller"
 application.register("togglemap", TogglemapController)
 

@@ -1,3 +1,37 @@
+// button to toggle between map and list
+.map-list-button {
+  display: flex;
+  justify-content: space-between;
+  width: 120px;
+  height: 45px;
+  border-radius: 50px;
+  background-color: #ffbc00;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  align-items: center;
+  color: $white;
+  padding: 15px;
+  outline: $black solid .5px;
+  transition: all 0.2s ease;
+  // box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
+
+  &:hover {
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);
+    color: $black;
+  }
+
+  h3 {
+    margin: 0;
+    font-size: 15px;
+  }
+
+  .symbol {
+    color: $black;
+    font-size: 20px;
+  }
+}
+
 .btn-ghost {
   color: #4A4A4A;
   border: 1px solid #4A4A4A;
@@ -5,7 +39,7 @@
   border-radius: 50px;
   font-weight: lighter;
   opacity: 0.6;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.2s ease;
 }
 
 .btn-ghost:hover {
@@ -17,7 +51,7 @@
   padding: 8px 24px;
   border-radius: 4px;
   background: $yellow-dark;
-  transition: background 0.3s ease;
+  transition: background 0.2s ease;
   position: fixed;
   bottom: 60px;
   z-index: 1;
@@ -28,7 +62,7 @@
   padding: 8px 24px;
   border-radius: 4px;
   background: $yellow-dark;
-  transition: background 0.3s ease;
+  // transition: background 0.3s ease;
   bottom: 60px;
 }
 

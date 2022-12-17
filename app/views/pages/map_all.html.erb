@@ -1,0 +1,25 @@
+<html>
+  <div class="map-results-all">
+  
+    <%# NAVBAR %>
+    <div class="navbar-floaties">
+      <%= render "shared/navbar" %>
+    </div>
+
+    <%# MAP %>
+    <%= render "map" %>
+
+    <%# SEE LIST BUTTON %>
+    <%= link_to root_path do %>
+      <div class="map-list-button">
+        <div>
+          <h3>See list</h3>
+        </div>
+        <div>
+          <i class="fa-solid fa-list symbol"></i>
+        </div>
+      </div>
+    <% end %>
+
+  </div>
+</html>

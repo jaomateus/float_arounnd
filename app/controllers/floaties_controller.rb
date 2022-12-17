@@ -1,23 +1,4 @@
 class FloatiesController < ApplicationController
-  def index
-    # @floaties = Floaty.all
-    @floaties = Floaty.geocoded
-    if params[:query].present?
-      sql_query = "title ILIKE :query OR category ILIKE :query OR address ILIKE :query"
-      @floaties = Floaty.geocoded.where(sql_query, query: "%#{params[:query]}%")
-    else
-      @floaties = Floaty.geocoded
-    end
-    # The `geocoded` scope filters only flats with coordinates
-    @markers = @floaties.map do |floaty|
-      {
-        lat: floaty.latitude,
-        lng: floaty.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { floaty: floaty }),
-        # image_url: helpers.asset_url("quaqua.png")
-      }
-    end
-  end
 
   def show
     @floaty = Floaty.find(params[:id])

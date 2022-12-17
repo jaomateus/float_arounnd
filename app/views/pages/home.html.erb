@@ -1,0 +1,75 @@
+<html>
+    %# BANNER %>
+  <div class="landing-bck-img">
+    <%# NAVBAR %>
+    <%= render "shared/navbar" %>
+    
+    <%# TYPRSCRIPT %>
+    <div class="type-text" >
+      <h1><span data-controller="typed-js"></span></h1>
+    </div>
+
+    <%# SEE MAP BUTTON %>
+    <%= link_to floatiesmap_path do %>
+      <div class="map-list-button">
+          <div>
+            <h3>See map</h3>
+          </div>
+          <div>
+            <i class="fa-regular fa-map symbol"></i>
+          </div>
+      </div>
+    <% end %>
+  </div>
+
+  <%# SEARCH CARD GRID %>
+  <div class="floaties-grid">
+    <div data-togglemap-target="grid" class="container">
+      <div class="card-grid-title">
+        <% if params[:query] %>
+          <h2>Float around...<%= " " + params[:query] + "!" %></h2>
+        <% else %>
+          <h2>Float around... the world!  <%= params[:query] %></h2>
+        <% end %>
+      </div>
+
+      <div class="card-grid">
+        <% @floaties.each do |floaty| %>
+          <%= link_to floaty_path(floaty), :class => "card-floaty" do %>
+
+            <div id="carouselExampleFade" class="carousel slide carousel-fade" data-interval="false">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img src=" <%= cl_image_path floaty.photos.first.key %> " class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                  <img src="..." class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                  <img src="..." class="d-block w-100" alt="...">
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+
+            <div class="d-flex justify-content-between align-itmes-center">
+              <div>
+                <h3><%= floaty.title %></h3>
+                <p>Rent me in for €<%= floaty.price %></p>
+              </div>
+            </div>
+
+          <% end %>
+
+        <% end %>
+      </div>
+    </div>
+  </div>
+</html>

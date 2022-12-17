@@ -1,15 +1,10 @@
-.map {
-  padding: 0 !important;
-
-}
-
 
 .mapboxgl-popup {
   max-width: 200px;
 
   .map-popup-img {
     overflow: hidden;
-    object-fit: contain;
+    object-fit: fill;
     border-radius: 10px;
     width: 100%;
     height: 50%;
@@ -17,14 +12,21 @@
 }
 
 .mapboxgl-popup-content {
-  text-align: center;
+  text-align: left;
   font-family: $body-font;
   border-radius: 10px;
+  background-color: aqua;
 }
+
+// .mapboxgl-popup-content-wrapper {
+//  padding: 0;
+//  background-color: aqua;
+// }
 
 .info-window {
   width: 200px;
-  height: 200px;
+  height: 270px;
+
     p {
       margin-top: 12px;
       margin-bottom: 6px;
@@ -41,5 +43,12 @@
 .btn-info-window {
   width: 80%;
   margin-bottom: 12px;
+}
+
+.price-reserve {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+
 
 }

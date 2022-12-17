@@ -1,39 +1,19 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
+<div class="navbar-floaties">
+  <%# Logo %>
+  <%= link_to "/", class: "navbar-brand" do %>
+    <%= image_tag "logo_floaty.png" %>
+  <% end %>
 
-    <%# Logo %>
-    <%= link_to "/", class: "navbar-brand" do %>
-      <%= image_tag "logo_floaty.png" %>
-    <% end %>
+  <div class="navbar-search_form">
+    <%= render "shared/search_form" %>
+  </div>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <%# Collapsed sandwich menu %>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-        <% if user_signed_in? %>
-          <li class="nav-item active nav-button-hover">
-            <%= link_to "Rent out your floaty", new_floaty_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item nav-dropdown-icon">
-            <i class="fas fa-bars"  data-bs-toggle="dropdown"></i>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">My reservations</a>
-              <a class="dropdown-item" href="#">My favorites</a>
-              <a class="dropdown-item" data-turbo-method="delete" href="#">Log out</a>
-            </div>
-          </li>
-        <% else %>
-          <li class="nav-item active">
-              <%= link_to "Login / Sign up", new_user_registration_path , class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          </li>
-        <% end %>
-      </ul>
+  <div class="nav-links">
+    <div class="rent-me-link">
+      <%= link_to "Rent my floaty", new_floaty_path, class: "nav-link" %>
+    </div>
+    <div >
+      <i class="fas fa-bars"  data-bs-toggle="dropdown"></i>
     </div>
   </div>
 </div>

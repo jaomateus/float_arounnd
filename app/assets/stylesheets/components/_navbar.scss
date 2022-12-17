@@ -1,52 +1,53 @@
 .navbar-floaties {
+  display: flex;
+  align-items: center;
   overflow: hidden;
   position: fixed; /* Set the navbar to fixed position */
   top: 0;
   width: 100%;
   margin-bottom: 50px;
   z-index: 10;
-
-}
-
-.navbar-lewagon {
   justify-content: space-between;
   background: #ffbc00;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid $black;
+  height: 80px;
 
-}
+  .navbar-brand img {
+    height: 40px;
+    object-fit: cover;
+  }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
+  .nav-links {
+    margin-right: 20px;
+    margin-left: 18px;
+    display: flex;
+    align-items: center;
+    color: $white;
+    height: 3rem;
 
-.navbar-lewagon .navbar-brand img {
-  height: 40px;
-  object-fit: cover;
-}
+    .rent-me-link {
+      display: flex;
+      height: 35px;
+      align-items: center;
+      padding: 0 10px 0 10px;
+      border-radius: 10px;
+      transition: all 0.2s ease;
 
-.navbar-buttons {
-  color: black;
-}
+      &:hover {
+        border: 1px solid $black;
+        color : $black;
+        // box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+        }
+    }
 
-.nav-dropdown-icon {
-  margin-right: 12px;
-  margin-left: 18px;
-  display: flex;
-  align-items: center;
-
-  i {
-    font-size: 30px;
-    color: black;
+    i {
+      font-size: 30px;
+      color: rgb(46, 46, 46);
+      margin-left: 20px;
+    }
   }
 }
 
 .nav-link{
-  color: rgb(46, 46, 46) !important;
-}
-
-.nav-button-hover {
-  &:hover{
-    border: 1px solid rgb(46, 46, 46);
-    border-radius: 4px;
-  }
+  padding: 12px;
 }

@@ -1,0 +1,13 @@
+<%# SEARCH FORM %>
+<div class="search-form">
+  <%= form_with url: root_path, method: :get, class: "d-flex" do %>
+    <div class="search-form-control form-group  flex-grow-1">
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Find a floaty in ..."
+      %>
+      <%= submit_tag "Search", class: "btn "  %>
+    </div>
+  <% end %>
+</div>
