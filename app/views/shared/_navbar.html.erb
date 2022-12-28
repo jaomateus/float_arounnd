@@ -1,19 +1,14 @@
-<div class="navbar-floaties">
-  <%# Logo %>
-  <%= link_to "/", class: "navbar-brand" do %>
-    <%= image_tag "logo_floaty.png" %>
-  <% end %>
-
-  <div class="navbar-search_form">
-    <%= render "shared/search_form" %>
-  </div>
-
-  <div class="nav-links">
-    <div class="rent-me-link">
-      <%= link_to "Rent my floaty", new_floaty_path, class: "nav-link" %>
-    </div>
-    <div >
-      <i class="fas fa-bars"  data-bs-toggle="dropdown"></i>
+<div class="navbar">
+  <a href="#home">Home</a>
+  <a href="#news">News</a>
+  <div class="dropdown">
+    <button class="dropbtn">Dropdown
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="#">Link 1</a>
+      <a href="#">Link 2</a>
+      <a href="#">Link 3</a>
     </div>
   </div>
 </div>

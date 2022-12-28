@@ -8,6 +8,7 @@
     "@mapbox/mapbox-gl-geocoder": "^5.0.1",
     "@popperjs/core": "^2.11.6",
     "bootstrap": "^5.2.3",
+    "stimulus-dropdown": "^2.0.0",
     "stimulus-scroll-to": "^4.0.0",
     "typed.js": "^2.0.12",
     "webpack": "^5.75.0",
