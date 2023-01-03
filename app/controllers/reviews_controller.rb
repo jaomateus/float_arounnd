@@ -5,20 +5,14 @@ class ReviewsController < ApplicationController
     @review.floaty = @floaty
     respond_to do |format|
       if @review.save
-       format.html { redirect_to floaty_path(@floaty) }
-       format.json
+        format.html { redirect_to floaty_path(@floaty) }
+        format.json
       else
         format.html { render "floaties/show", status: :unprocessable_entity }
         format.json
       end
     end
   end
-
-  # def destroy
-  #   @review = Review.find(params[:id])
-  #   @review.destroy
-  #   # redirect_to list_path(@review.list)
-  # end
 
   private
 

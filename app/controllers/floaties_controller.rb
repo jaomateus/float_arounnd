@@ -1,7 +1,7 @@
 class FloatiesController < ApplicationController
 
   def my_floaties
-    @floaties = Floaty.where(user_id: current_user.id)
+    @floaties = Floaty.geocoded.where(user_id: current_user.id)
   end
 
   def index

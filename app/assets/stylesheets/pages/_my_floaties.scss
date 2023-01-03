@@ -1,0 +1,49 @@
+.my_floaties_list {
+
+  margin-top: 150px;
+
+  .my_floaty {
+    display: flex;
+    width: 100%;
+    margin-bottom: 15px;
+    // justify-content: space-between;
+
+    .my_floaty-card {
+      width: 200px;
+      height: 100px;
+      overflow: hidden;
+      object-fit: fill;
+      border-radius: 10px;
+    }
+  }
+
+  .my_floaties_details {
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+
+    .my_floaty_title {
+      color: $black;
+      font-size: 15px;
+      font-weight: 500;
+      width: 300px;
+    }
+
+    .my_floaty_status {
+      color: $gray;
+      font-size: 12px;
+      font-weight: 400;
+    }
+
+    .my_floaty_location {
+      color: $black;
+      font-size: 12px;
+      font-weight: 200;
+      width: 200px;
+    }
+  }
+}
+
+hr.divider {
+  border-top: 1px solid #bbb;
+}

@@ -22,25 +22,21 @@
           </a>
           <ul class="dropdown-menu dropdown-menu-end">
             <% if user_signed_in? %>
-              <li><a class="dropdown-item" href="#">Messages</a></li>
-              <li><a class="dropdown-item" href="#">Notifications</a></li>
-              <li><a class="dropdown-item" href="<%= bookings_path %>">My reservations</a></li>
+              <li><%= link_to "Messages", bookings_path, class:"dropdown-item" %></li>
+              <li><%= link_to "Notifications", bookings_path, class:"dropdown-item" %></li>
+              <li><%= link_to "My reservations", bookings_path, class:"dropdown-item" %></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Rent a new floaty</a></li>
-              <li><a class="dropdown-item" href="#">Manage my floaties</a></li>
+              <li><%= link_to "Rent a new floaty", new_floaty_path, class:"dropdown-item" %></li>
+              <li><%= link_to "Manage my floaties", my_floaties_path, class:"dropdown-item" %></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Logout</a></li>
+              <li><%= link_to "Sign-out", destroy_user_session_path, data: {turbo_method: :delete}, class:"dropdown-item" %></li>
             <% else %>
-              <li><a class="dropdown-item" href="#">Sign-in</a></li>
-              <li><a class="dropdown-item" href="<%= new_user_session_path %>">Login</a></li>
+              <li><%= link_to "Sign-in", bookings_path, class:"dropdown-item" %></li>
+              <li><%= link_to "Login", new_user_session_path, class:"dropdown-item" %></li>
             <% end %>
           </ul>
         </li>
       </ul>
-        <%# <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Rent a floatie in..." aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form> %>
     </div>
   </div>
 </nav>
