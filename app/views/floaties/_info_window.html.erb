@@ -1,4 +1,4 @@
-<div class="info-window">
+ <%= link_to floaty_path(floaty), :class => "info-window" do %>
   <div class="map-popup-img">
     <% if floaty.photos.attached? %>
       <%= cl_image_tag floaty.photos[0].key %>
@@ -8,10 +8,7 @@
   <p><%= floaty.details.first(100) %>...</p>
   <div class="price-reserve">
     <div>
-      <p>€ <%= floaty.price %> /day</p>
-    </div>
-    <div>
-      <p><%= link_to "Rent me!", floaty_path(floaty), class:"btn-show" %></p>
+      <p><strong>€ <%= floaty.price %></strong> day</p>
     </div>
   </div>
-</div>
+<% end %>

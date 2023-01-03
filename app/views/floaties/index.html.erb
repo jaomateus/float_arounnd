@@ -7,7 +7,7 @@
         <% if params[:query] %>
           <h3 class="light_txt">Float around  <span id="bold_txt"><%= " " + params[:query] %>.</span></h3>
         <% else %>
-          <h2>Float around... the world!  <%= params[:query] %></h2>
+          <h3 class="light_txt">Float around  <span id="bold_txt">the world.</span></h3>
         <% end %>
       </div>
 
@@ -40,7 +40,7 @@
             <div class="d-flex justify-content-between align-itmes-center">
               <div>
                 <h3><%= floaty.title %></h3>
-                <p>Rent me in for €<%= floaty.price %></p>
+                <p><strong>€ <%= floaty.price %></strong> day</p>
               </div>
             </div>
           <% end %>
