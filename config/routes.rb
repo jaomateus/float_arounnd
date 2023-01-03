@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   resources :bookings, only: [:index]
 
   get "floatiesmap", to: "pages#map_all"
+  get "my_floaties", to: "floaties#my_floaties"
 end

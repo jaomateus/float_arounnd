@@ -2,13 +2,6 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: :home
 
   def home
-    @floaties = Floaty.geocoded
-    if params[:query].present?
-      sql_query = "title ILIKE :query OR category ILIKE :query OR address ILIKE :query"
-      @floaties = Floaty.geocoded.where(sql_query, query: "%#{params[:query]}%")
-    else
-      @floaties = Floaty.geocoded
-    end
   end
 
   def map_all

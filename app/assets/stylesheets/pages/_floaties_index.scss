@@ -33,3 +33,13 @@
 .background-map {
   background-color: $black;
 }
+
+.light_txt {
+  margin-bottom: 50px;
+  font-size: 40px;
+
+  #bold_txt {
+    color: $black;
+    font-weight: 600;
+  }
+}

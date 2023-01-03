@@ -1,5 +1,19 @@
 class FloatiesController < ApplicationController
 
+  def my_floaties
+    @floaties = Floaty.where(user_id: current_user.id)
+  end
+
+  def index
+    @floaties = Floaty.geocoded
+    if params[:query].present?
+      sql_query = "title ILIKE :query OR category ILIKE :query OR address ILIKE :query"
+      @floaties = Floaty.geocoded.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @floaties = Floaty.geocoded
+    end
+  end
+
   def show
     @floaty = Floaty.find(params[:id])
     @review = Review.new

@@ -28,7 +28,7 @@
       <h2>Float around... <%= params[:query] %></h2>
     </div>
 
-    <div class="card-grid" id="awesome-stuff-here">
+    <div class="card-grid">
       <% @floaties.each do |floaty| %>
         <%= link_to floaty_path(floaty), :class => "card-floaty" do %>
           <% if floaty.photos.attached? %>
