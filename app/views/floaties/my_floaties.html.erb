@@ -3,18 +3,19 @@
   <%= render "shared/navbar" %>
 </div>
 <div>
-  <%# Total of reservations %>
-<h4 class="list_count"><%= @floaties.count %> Listings</h4>
 
   <div class="container ">
-    <div class="row">
+    <%# Total of reservations %>
+    <h4 class="list_count"><%= @floaties.count %> Listings</h4>
+
+    <div class="row d-flex align-items-center justify-content-between">
       <%# HEADER %>
-      <div class="col-3">PHOTO</div>
-      <div class="col-2">TITLE</div>
-      <div class="col-2">STATUS</div>
-      <div class="col-2">LOCATION</div>
-      <div class="col-2">LAST MODIFIED</div>
-      <div class="col-1">EDIT</div>
+      <div class="col-2"></div>
+      <div class="col-2 floaty_info_head ">TITLE</div>
+      <div class="col-2 floaty_info_head ">STATUS</div>
+      <div class="col-2 floaty_info_head ">LOCATION</div>
+      <div class="col-2 floaty_info_head ">LAST MODIFIED</div>
+      <div class="col-1 floaty_info_head ">EDIT</div>
       <hr class="divider">
     </div>
 
@@ -26,15 +27,43 @@
       <% response = Geocoder.search(lat_lon).first %>
       <% city =  response.city if response.present?%>
 
-      <% if floaty.photos.attached? %>
-          <div class="col-3 my_floaty-card">
-            <img src=" <%= cl_image_path floaty.photos.first.key %> " class="d-block w-100" alt="...">
-          </div>
-        <% else %>
+      <%# Myfloaty row %>
+      <div class="row align-items-center d-flex justify-content-between">
+        <div class="col-2">
           <div class="my_floaty-card">
-            No photo
+            <% if floaty.photos.attached? %>
+              <img src=" <%= cl_image_path floaty.photos.first.key %> " class="d-block w-100" alt="...">
+            <% else %>
+              No photo
+            <% end %>
           </div>
-      <% end %>
+        </div>
+        <div class="col-2 floaty_info">
+          <%= floaty.title %>
+        </div>
+        <div class="col-2 floaty_info">
+          <% if floaty.listed == true %>
+            <i class="fa-solid fa-location-dot green"></i><span>&nbsp&nbsp&nbspListed</span>
+          <% else %>
+            <i class="fa-solid fa-location-dot red"></i><span>&nbsp&nbsp&nbspUnlisted</span>
+          <% end %>
+        </div>
+        <div class="col-2 floaty_info">
+          <%= city %>
+        </div>
+        <div class="col-2 floaty_info">
+          <%= floaty.updated_at.strftime("%b %d %Y")%>
+        </div>
+        <div class="col-1">
+          <i class="fa-solid fa-pen-to-square"></i>
+        </div>
+      </div>
+
+      <%# DIVIDER  %>
+      <div class="col-12">
+        <hr class="divider">
+      </div>
+
 
     <% end %>
 
