@@ -1,14 +1,14 @@
 <html>
-  <div class="map-results-all">
-
+  <%# BANNER %>
+  <div>
     <%# NAVBAR %>
-    <div class="navbar-floaties">
-      <%= render "shared/navbar" %>
-    </div>
-
+    <%= render "shared/navbar" %>
+  </div>
+  <div>
     <%# MAP %>
     <%= render "map" %>
-
+  </div>
+  <div>
     <%# SEE LIST BUTTON %>
     <%= link_to root_path do %>
       <div class="map-list-button">
@@ -20,6 +20,5 @@
         </div>
       </div>
     <% end %>
-
   </div>
 </html>
