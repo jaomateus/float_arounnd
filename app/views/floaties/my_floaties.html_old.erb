@@ -1,0 +1,81 @@
+<div>
+  <%# NAVBAR %>
+  <%= render "shared/navbar" %>
+</div>
+<div>
+</div>
+<div class="container">
+  <div class="my_floaties_list">
+
+    <%# Total of reservations %>
+    <h4 class="list_count"><%= @floaties.count %> Listings</h4>
+
+
+    <div class="my_floaty header">
+        <div class="my_floaty-card" id="photo_header">
+        </div>
+      <div class="my_floaties_details header">
+        <div class="my_floaty_title">
+          TITLE
+        </div>
+        <div class="my_floaty_status header">
+          STATUS
+        </div>
+        <div class="my_floaty_location header">
+          LOCATION
+        </div>
+        <div class="last_modified header">
+          LAST MODIFIED
+        </div>
+        <div class="edit_btn">
+          EDIT
+        </div>
+      </div>
+    </div>
+    <hr class="divider">
+
+    <% @floaties.each do |floaty| %>
+      <%# Retrive city name from coordinates %>
+      <% lat = floaty.latitude %>
+      <% lon = floaty.longitude %>
+      <% lat_lon = "#{lat},#{lon}" %>
+      <% response = Geocoder.search(lat_lon).first %>
+      <% city =  response.city if response.present?%>
+
+      <div class="my_floaty">
+        <% if floaty.photos.attached? %>
+          <div class="my_floaty-card">
+            <img src=" <%= cl_image_path floaty.photos.first.key %> " class="d-block w-100" alt="...">
+          </div>
+        <% else %>
+          <div class="my_floaty-card">
+            No photo
+          </div>
+        <% end %>
+        <div class="my_floaties_details">
+          <div class="my_floaty_title">
+            <%= floaty.title %>
+          </div>
+          <div class="my_floaty_status">
+            <% if floaty.listed == true %>
+              <i class="fa-solid fa-location-dot green"></i><span>&nbsp&nbsp&nbspListed</span>
+            <% else %>
+              <i class="fa-solid fa-location-dot red"></i><span>&nbsp&nbsp&nbspUnlisted</span>
+            <% end %>
+          </div>
+          <div class="my_floaty_location">
+            <%= city %>
+          </div>
+          <div class="last_modified">
+            <%= floaty.updated_at.strftime("%b %d %Y")%>
+          </div>
+          <div class="edit_btn">
+            <i class="fa-solid fa-pen-to-square"></i>
+          </div>
+        </div>
+      </div>
+
+      <hr class="divider">
+    <% end %>
+  </div>
+</div>

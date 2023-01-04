@@ -1,10 +1,24 @@
-<%# NAVBAR %>
-<%= render "shared/navbar" %>
+<div>
+  <%# NAVBAR %>
+  <%= render "shared/navbar" %>
+</div>
+<div>
+  <%# Total of reservations %>
+<h4 class="list_count"><%= @floaties.count %> Listings</h4>
 
-<div class="container">
-  <div class="my_floaties_list">
+  <div class="container ">
+    <div class="row">
+      <%# HEADER %>
+      <div class="col-3">PHOTO</div>
+      <div class="col-2">TITLE</div>
+      <div class="col-2">STATUS</div>
+      <div class="col-2">LOCATION</div>
+      <div class="col-2">LAST MODIFIED</div>
+      <div class="col-1">EDIT</div>
+      <hr class="divider">
+    </div>
+
     <% @floaties.each do |floaty| %>
-
       <%# Retrive city name from coordinates %>
       <% lat = floaty.latitude %>
       <% lon = floaty.longitude %>
@@ -12,28 +26,17 @@
       <% response = Geocoder.search(lat_lon).first %>
       <% city =  response.city if response.present?%>
 
-      <div class="my_floaty">
-        <% if floaty.photos.attached? %>
-          <div class="my_floaty-card">
+      <% if floaty.photos.attached? %>
+          <div class="col-3 my_floaty-card">
             <img src=" <%= cl_image_path floaty.photos.first.key %> " class="d-block w-100" alt="...">
           </div>
         <% else %>
-          <div class="d" style="background-image: url(<%= cl_image_path floaty.photos.first.key %>)">
+          <div class="my_floaty-card">
+            No photo
           </div>
-        <% end %>
-        <div class="my_floaties_details">
-          <div class="my_floaty_title">
-            <%= floaty.title %>
-          </div>
-          <div class="my_floaty_status">
-            <%= floaty.address %>
-          </div>
-          <div class="my_floaty_location">
-            <%= city %>
-          </div>
-        </div>
-      </div>
-      <hr class="divider">
+      <% end %>
+
     <% end %>
+
   </div>
 </div>

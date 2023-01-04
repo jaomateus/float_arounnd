@@ -1,16 +1,16 @@
 .my_floaties_list {
+  margin-top: 100px;
 
-  margin-top: 150px;
+  .list_count {
+    margin-bottom: 50px;
+  }
 
   .my_floaty {
-    display: flex;
-    width: 100%;
-    margin-bottom: 15px;
-    // justify-content: space-between;
+    // display: flex;
+    // width: 100%;
 
     .my_floaty-card {
-      width: 200px;
-      height: 100px;
+      // height: 100px;
       overflow: hidden;
       object-fit: fill;
       border-radius: 10px;
@@ -31,17 +31,50 @@
 
     .my_floaty_status {
       color: $gray;
-      font-size: 12px;
+      font-size: 14px;
       font-weight: 400;
+      width: 200px;
+
+      .green {
+        color: green;
+        font-size: 15px;
+      }
+
+      .red {
+        color: red;
+        font-size: 15px;
+      }
     }
 
     .my_floaty_location {
       color: $black;
-      font-size: 12px;
-      font-weight: 200;
+      font-size: 14px;
+      font-weight: 400;
       width: 200px;
     }
+
+    .last_modified {
+      color: $black;
+      font-size: 14px;
+      font-weight: 400;
+      width: 100px;
+    }
+
+    .edit_btn {
+      font-size: 20px;
+    }
   }
+}
+
+.header {
+  font-size: 15px;
+  color: $gray;
+  font-weight: 500;
+}
+
+#photo_header {
+  height: 0px;
+  margin-top: 50px;
 }
 
 hr.divider {
