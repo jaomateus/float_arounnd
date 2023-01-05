@@ -1,21 +1,24 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar sticky-top navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <%# Logo  %>
     <%= link_to "/", class: "navbar-brand navbar-logo" do %>
       <%= image_tag "logo_floaty.png" %>
     <% end %>
-
+    <div class="navbar-search_form">
+      <%= render "shared/search_form" %>
+    </div>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    <div class="collapse navbar-collapse flex-row-reverse" id="navbarSupportedContent">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="<%= new_floaty_path %>">Rent my floatie</a>
+        </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Menu
+            <i class="fas fa-bars dropbtn"></i>
           </a>
-          <ul class="dropdown-menu">
+          <ul class="dropdown-menu dropdown-menu-end">
             <% if user_signed_in? %>
               <li><%= link_to "Messages", bookings_path, class:"dropdown-item" %></li>
               <li><%= link_to "Notifications", bookings_path, class:"dropdown-item" %></li>
@@ -26,19 +29,12 @@
               <li><hr class="dropdown-divider"></li>
               <li><%= link_to "Sign-out", destroy_user_session_path, data: {turbo_method: :delete}, class:"dropdown-item" %></li>
             <% else %>
-              <li><%= link_to "Sign-in", new_user_registration_path, class:"dropdown-item" %></li>
+              <li><%= link_to "Sign-in", bookings_path, class:"dropdown-item" %></li>
               <li><%= link_to "Login", new_user_session_path, class:"dropdown-item" %></li>
             <% end %>
           </ul>
         </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Rent my floatie</a>
-        </li>
       </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control form-group rounded-4 me-2" type="search" placeholder="Rent a floaty in..." aria-label="Search">
-        <button class="btn btn-src-frm" type="submit">Search</button>
-      </form>
     </div>
   </div>
 </nav>

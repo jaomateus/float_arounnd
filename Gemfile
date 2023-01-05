@@ -91,3 +91,6 @@ group :test do
 end
 
 gem "bootstrap",  "~>5.2.0"
+
+# Gem to sign-in with facebook
+gem "omniauth-facebook"
