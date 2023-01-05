@@ -2,3 +2,19 @@
   width: 90%;
   justify-content: center;
 }
+
+.form_container {
+  margin: 0 auto;
+  width: 40%;
+  // background-color: $dark-gray;
+  padding: 20px;
+  border-radius: 15px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  // color: $white;
+}
+
+.dark-blackground {
+  background-color: $dark-gray;
+  height: 100vh;
+}

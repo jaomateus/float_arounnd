@@ -1,4 +1,5 @@
 class FloatiesController < ApplicationController
+  skip_before_action :authenticate_user!, only: :index
 
   def my_floaties
     @floaties = Floaty.geocoded.where(user_id: current_user.id)

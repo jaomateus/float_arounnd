@@ -1,20 +1,23 @@
-<div class="container py-5">
-  <div class="row">
-    <div class="col-12 col-md-6 offset-lg-3">
-      <div class="bg-white rounded p-3 shadow">
-        <%# <h3>Add a new floaty</h3> %>
-        <%= simple_form_for @floaty do |f| %>
-            <%= f.input :title %>
-            <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-            <%= f.input :category, collection: ["Boat", "Canoe", "Paddle", "Floatie", "Board"] %>
-            <%= f.input :details %>
-            <%= f.input :address,
-                        input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
-                        wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
-                        %>
-            <%= f.input :price %>
-            <%= f.submit class: 'btn btn-flat-show' %>
-        <% end %>
+<div class="dark-blackground">
+  <div class="py-4">
+    <div class="row">
+      <div class="col-12 col-md-6 offset-lg-3">
+        <%# <div class="bg-white p-4 shadow rounded-4"> %>
+          <h5 class="d-flex justify-content-end">Add a new floaty</h5>
+          <%= simple_form_for @floaty do |f| %>
+              <%= f.input :title %>
+              <%= f.input :details, :label => "Descritpion" %>
+              <%= f.input :category, collection: ["Boat", "Board", "Canoe", "Paddle", "Floatie" ] %>
+              <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+              <%= f.input :address,
+                          input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
+                          wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
+                          %>
+              <%= f.input :price, :label => "Price /day" %>
+              <%= f.submit 'Add Floaty', class: 'btn btn-form' %>
+              <%= link_to "Cancel", :back, class: "cancel_link"%>
+          <% end %>
+        <%# </div> %>
       </div>
     </div>
   </div>
