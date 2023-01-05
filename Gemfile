@@ -92,5 +92,7 @@ end
 
 gem "bootstrap",  "~>5.2.0"
 
-# Gem to sign-in with facebook
+# Gem to sign-in with facebooke
+gem "omniauth"
 gem "omniauth-facebook"
+gem 'omniauth-rails_csrf_protection', '~> 1.0'

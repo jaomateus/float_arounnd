@@ -49,3 +49,21 @@
   padding-top: 150px;
   color: white;
 }
+
+
+// Chevron
+.chevron {
+  border-radius: 50%;
+  font-size: 50px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  color: $white;
+  padding: 15px;
+  transition: all 0.5s ease;
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
+
+  &:hover {
+    color: $yellow-dark;
+  }
+}

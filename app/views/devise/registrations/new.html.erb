@@ -33,6 +33,9 @@
               <%= f.button :submit, "Sign up" %>
             </div>
             <%= link_to "Cancel", :back, class: "cancel_link"%>
+
+            <%# Login with facebook  %>
+            <%= link_to "Register with Facebook", user_facebook_omniauth_authorize_path, method: :post,  data: { turbolinks: false }  %>
           <% end %>
         <%# </div> %>
       </div>

@@ -11,15 +11,57 @@
     </div> %>
 
     <%# SEE MAP BUTTON %>
+
     <%= link_to floatiesmap_path do %>
-      <div class="map-list-button">
+      <%= link_to "#floaty-list", data: {controller: "scroll-to"} do%>
+        <i class="fa-solid fa-chevron-down chevron"></i>
+      <% end %>
+
+      <%# <div class="map-list-button">
           <div>
             <h3>Show map</h3>
           </div>
           <div>
             <i class="fa-regular fa-map symbol"></i>
           </div>
-      </div>
+      </div> %>
     <% end %>
+  </div>
+
+  <div class="float-grid" id="floaty-list">
+    <%# SEARCH CARD GRID %>
+    <div class="floaties-grid">
+      <div data-togglemap-target="grid" class="container">
+        <div class="card-grid-title">
+          <% if params[:query] %>
+            <h3 class="light_txt">Float around  <span id="bold_txt"><%= " " + params[:query] %>.</span></h3>
+          <% else %>
+            <h3 class="light_txt">Float around  <span id="bold_txt">the world.</span></h3>
+          <% end %>
+        </div>
+
+        <div class="card-grid" >
+          <% @floaties.each do |floaty| %>
+            <%= link_to floaty_path(floaty), :class => "card-floaty" do %>
+              <% if floaty.photos.attached? %>
+                <div class="floaty-card" style="background-image: url(<%= cl_image_path floaty.photos.first.key %>)">
+                  <i class="fa-solid fa-heart text-light"></i>
+                </div>
+              <% else %>
+                <div>
+                <%= image_tag "rubber_duck.jpg", :class =>"floaty-card" %>
+                </div>
+              <% end %>
+              <div class="d-flex justify-content-between align-itmes-center">
+                <div>
+                  <h3><%= floaty.title %></h3>
+                  <p><strong>€ <%= floaty.price %></strong> day</p>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
 </html>

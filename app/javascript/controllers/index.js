@@ -16,6 +16,9 @@ application.register("insert-in-list", InsertInListController)
 import MapController from "./map_controller"
 application.register("map", MapController)
 
+import ScrolltoController from "./scrollto_controller"
+application.register("scrollto", ScrolltoController)
+
 import TogglemapController from "./togglemap_controller"
 application.register("togglemap", TogglemapController)
 
