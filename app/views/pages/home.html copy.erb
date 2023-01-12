@@ -1,17 +1,37 @@
-<section class="section section-1">
-    <%# Navbar  %>
-    <div class="landing-bck-img">
-        <%= render "shared/navbar_home" %>
-    </div>
+<html>
+  <%# BANNER %>
+  <div class="landing-bck-img">
+    <%# NAVBAR %>
+    <%= render "shared/navbar_home" %>
+  </div>
 
-    <%# Scrolling Button  %>
-    <div class="scrollbtn scroll-down">
+
+    <%# TYPRSCRIPT
+    <div class="type-text" >
+      <h1><span data-controller="typed-js"></span></h1>
+    </div> %>
+
+    <%# SEE MAP BUTTON %>
+
+    <%= link_to floatiesmap_path do %>
+      <%= link_to "#page-break", data: {controller: "scroll-to"} do%>
         <i class="fa-solid fa-chevron-down chevron"></i>
-    </div>
-</section>
+      <% end %>
 
-<section class="section section-2">
-    <div class="float-grid" id="floaty-list">
+      <%# <div class="map-list-button">
+          <div>
+            <h3>Show map</h3>
+          </div>
+          <div>
+            <i class="fa-regular fa-map symbol"></i>
+          </div>
+      </div> %>
+    <% end %>
+  </div>
+  <div id="page-break">
+    <hr>
+  </div>
+  <div class="float-grid" id="floaty-list">
     <%# SEARCH CARD GRID %>
     <div class="floaties-grid">
       <div data-togglemap-target="grid" class="container">
@@ -46,18 +66,5 @@
         </div>
       </div>
     </div>
-</section>
-
-
-<%# Scroll down or up  %>
-<script>
-    document.querySelectorAll('.scrollbtn').forEach(btn => {
-        btn.addEventListener('click', function() {
-            let scrollDistance = document.documentElement.clientHeight;
-            if (btn.className.split(' ').includes('scroll-up')) {
-                scrollDistance *= -1;
-            }
-            window.scrollBy(0, scrollDistance);
-        });
-    });
-</script>
+  </div>
+</html>

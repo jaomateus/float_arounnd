@@ -30,7 +30,7 @@
 }
 
 .card-grid-title {
-  margin-top: 90px;
+  margin-top: 50px;
 }
 
 .card-grid-title h2 {
@@ -67,3 +67,15 @@
     color: $yellow-dark;
   }
 }
+
+#page-break {
+  margin-top: 0px;
+}
+
+
+// To Delete
+.section {
+    width: 100%;
+    height: 100vh;
+  }
+
