@@ -5,9 +5,12 @@
 }
 
 .navbar {
-  background-color: $yellow-dark;
-//   display: flex;
-//   justify-content: space-between;
+    background-color: transparent;
+    transition: 1s background-color ease;
+}
+
+.nabbar_bg {
+    background-color: $yellow-dark;
 }
 
 .navbar-brand img {
@@ -22,7 +25,7 @@
 
 .navbar-nav .dropdown-menu {
   border-radius: 10px;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.6);
   box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);
 
   .dropdown-item {

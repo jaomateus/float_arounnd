@@ -1,4 +1,7 @@
-<nav class="navbar fixed-top navbar-expand-lg bg-body-tertiary">
+<nav class="navbar fixed-top navbar-expand-lg bg-body-tertiary"
+        data-controller="navbar"
+        data-action="scroll@window->navbar#updateNavbar">
+
     <div class="container-fluid my-2">
         <div>
             <%# Logo  %>
@@ -43,7 +46,3 @@
         </div>
     </div>
 </nav>
-
-<script>
-    document.querySelector('.')
-</script>

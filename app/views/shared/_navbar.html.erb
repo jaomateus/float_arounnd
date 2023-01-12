@@ -1,2 +1,41 @@
-<nav class="navbar bg-light">
+<nav class="navbar nabbar_bg fixed-top navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid my-2">
+        <div>
+            <%# Logo  %>
+            <%= link_to "/", class: "navbar-brand navbar-logo" do %>
+                <%= image_tag "logo_floaty.png" %>
+            <% end %>
+        </div>
+
+        <div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Menu
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                        <% if user_signed_in? %>
+                            <li><%= link_to "Messages", bookings_path, class:"dropdown-item" %></li>
+                            <li><%= link_to "Notifications", bookings_path, class:"dropdown-item" %></li>
+                            <li><%= link_to "My reservations", bookings_path, class:"dropdown-item" %></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><%= link_to "Rent new floaty", new_floaty_path, class:"dropdown-item" %></li>
+                            <li><%= link_to "Manage my floaties", my_floaties_path, class:"dropdown-item" %></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><%= link_to "Sign-out", destroy_user_session_path, data: {turbo_method: :delete}, class:"dropdown-item" %></li>
+                        <% else %>
+                            <li><%= link_to "Sign-in", new_user_registration_path, class:"dropdown-item" %></li>
+                            <li><%= link_to "Login", new_user_session_path, class:"dropdown-item" %></li>
+                        <% end %>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </nav>
