@@ -1,12 +1,17 @@
-<%# SEARCH FORM %>
 <div class="search-form">
-  <%= form_with url: root_path , method: :get, class: "d-flex" do %>
+  <%= form_with url: root_path , method: :get,
+                html: { class: 'd-flex',
+                data: { refresh_list_target: 'form',
+                action: "submit->refresh-list#update"
+    } } do |f| %>
+
     <div class="search-form-control form-group  flex-grow-1">
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-        placeholder: "Find a floaty in ..."
-      %>
+      <%= f.text_field :query,
+                    class: "form-control",
+                    placeholder: 'Find a floaty in ...',
+                    value: params[:query],
+                    data: {
+                      refresh_list_target: 'searchInput' } %>
       <%= submit_tag "Search", class: "btn "  %>
     </div>
   <% end %>

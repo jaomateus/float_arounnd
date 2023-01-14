@@ -19,6 +19,9 @@ application.register("map", MapController)
 import NavbarController from "./navbar_controller"
 application.register("navbar", NavbarController)
 
+import RefreshListController from "./refresh_list_controller"
+application.register("refresh-list", RefreshListController)
+
 import ScrolltoController from "./scrollto_controller"
 application.register("scrollto", ScrolltoController)
 

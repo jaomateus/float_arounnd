@@ -1,63 +1,29 @@
-<section class="section section-1">
+<div data-controller="refresh-list">
+  <section class="section section-1">
+
     <%# Navbar  %>
     <div class="landing-bck-img">
-        <%= render "shared/navbar_home" %>
+      <%= render "shared/navbar_home" %>
     </div>
 
     <%# Scrolling Button  %>
     <div class="scrollbtn scroll-down">
-        <i class="fa-solid fa-chevron-down chevron"></i>
+      <i class="fa-solid fa-chevron-down chevron"></i>
     </div>
-</section>
 
-<section class="section section-2">
-    <div class="float-grid" id="floaty-list">
-    <%# SEARCH CARD GRID %>
-    <div class="floaties-grid">
-      <div data-togglemap-target="grid" class="container">
-        <div class="card-grid-title">
-          <% if params[:query] %>
-            <h3 class="light_txt">Float around  <span id="bold_txt"><%= " " + params[:query] %>.</span></h3>
-          <% else %>
-            <h3 class="light_txt">Float around  <span id="bold_txt">the world.</span></h3>
-          <% end %>
-        </div>
-
-        <div class="card-grid" >
-          <% @floaties.each do |floaty| %>
-            <%= link_to floaty_path(floaty), :class => "card-floaty" do %>
-              <% if floaty.photos.attached? %>
-                <div class="floaty-card" style="background-image: url(<%= cl_image_path floaty.photos.first.key %>)">
-                  <i class="fa-solid fa-heart text-light"></i>
-                </div>
-              <% else %>
-                <div>
-                <%= image_tag "rubber_duck.jpg", :class =>"floaty-card" %>
-                </div>
-              <% end %>
-              <div class="d-flex justify-content-between align-itmes-center">
-                <div>
-                  <h3><%= floaty.title %></h3>
-                  <p><strong>€ <%= floaty.price %></strong> day</p>
-                </div>
-              </div>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-</section>
-
+  </section>
+  <%= render "list" %>
+</div>
 
 <%# Scroll down or up  %>
 <script>
-    document.querySelectorAll('.scrollbtn').forEach(btn => {
-        btn.addEventListener('click', function() {
-            let scrollDistance = document.documentElement.clientHeight;
-            if (btn.className.split(' ').includes('scroll-up')) {
-                scrollDistance *= -1;
-            }
-            window.scrollBy(0, scrollDistance);
-        });
+  document.querySelectorAll('.scrollbtn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      let scrollDistance = document.documentElement.clientHeight;
+      if (btn.className.split(' ').includes('scroll-up')) {
+          scrollDistance *= -1;
+      }
+      window.scrollBy(0, scrollDistance);
     });
+  });
 </script>

@@ -7,11 +7,17 @@ class FloatiesController < ApplicationController
 
   def index
     @floaties = Floaty.geocoded
+
     if params[:query].present?
       sql_query = "title ILIKE :query OR category ILIKE :query OR address ILIKE :query"
       @floaties = Floaty.geocoded.where(sql_query, query: "%#{params[:query]}%")
     else
       @floaties = Floaty.geocoded
+    end
+
+    respond_to do |format|
+      format.html # Follow regular flow of Rails
+      format.text { render partial: 'list.html', locals: { floaties: @floaties } }
     end
   end
 
