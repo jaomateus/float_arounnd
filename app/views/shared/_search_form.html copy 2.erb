@@ -1,8 +1,7 @@
 <div class="search-form">
   <%= form_with url: root_path , method: :get,
                 html: { class: 'd-flex',
-                data: { refresh_list_target: 'form',
-                action: 'submit->refresh-list#update'
+                data: { refresh_list_target: 'form'
                 } } do |f| %>
 
     <div class="search-form-control form-group  flex-grow-1">
@@ -10,11 +9,10 @@
                     class: "form-control",
                     placeholder: 'Find a floaty in ...',
                     value: params[:query],
-                    data: {
-                      refresh_list_target: 'searchInput'
-                    }
-                    %>
-      <%= f.submit "Search", class: "btn" %>
+                    data: { refresh_list_target: 'submit'
+                }
+                     %>
+      <%= submit_tag "Search", class: "btn", action: "click->refresh-list#update"  %>
     </div>
   <% end %>
 </div>

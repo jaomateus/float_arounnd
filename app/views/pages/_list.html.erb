@@ -6,7 +6,7 @@
     <div class="floaties-grid">
       <div data-togglemap-target="grid" class="container">
         <div class="card-grid-title">
-          <% if params[:query] == "" %>
+          <% if params[:query] %>
             <h3 class="light_txt">Float around  <span id="bold_txt"><%= " " + params[:query] %>.</span></h3>
           <% else %>
             <h3 class="light_txt">Float around  <span id="bold_txt">the world.</span></h3>
@@ -14,7 +14,7 @@
         </div>
 
         <div class="card-grid" >
-          <% @floaties.each do |floaty| %>
+          <% floaties.each do |floaty| %>
             <%= link_to floaty_path(floaty), :class => "card-floaty" do %>
               <% if floaty.photos.attached? %>
                 <div class="floaty-card" style="background-image: url(<%= cl_image_path floaty.photos.first.key %>)">

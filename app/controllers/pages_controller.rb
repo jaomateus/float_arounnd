@@ -12,7 +12,7 @@ class PagesController < ApplicationController
 
     respond_to do |format|
       format.html # Follow regular flow of Rails
-      format.text { render partial: 'list.html', locals: { floaties: @floaties } }
+      format.text { render partial: 'list', formats: :html, locals: { floaties: @floaties } }
     end
   end
 
