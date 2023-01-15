@@ -22,8 +22,8 @@ application.register("navbar", NavbarController)
 import RefreshListController from "./refresh_list_controller"
 application.register("refresh-list", RefreshListController)
 
-import ScrolltoController from "./scrollto_controller"
-application.register("scrollto", ScrolltoController)
+import ScrollUpDownController from "./scroll_up_down_controller"
+application.register("scroll-up-down", ScrollUpDownController)
 
 import TogglemapController from "./togglemap_controller"
 application.register("togglemap", TogglemapController)

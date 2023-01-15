@@ -1,7 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
-import { ScrollTo } from 'stimulus-scroll-to'
 
-// Connects to data-controller="scrollto"
+// Connects to data-controller="scroll-up-down"
 export default class extends Controller {
   connect() {
   }
