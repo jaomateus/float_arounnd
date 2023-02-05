@@ -13,5 +13,4 @@ List of improvements:
             - Working on full responsivenss as a way to improve my CSS skills 
 - Jan. 2023 - Updated the float list to be asynchronous using AJAX
 - The scroll down button was created with vailla Javascript.
-- The list of floaties and the search functionality was updated to be done with AJAX + Fetch
 - The navbar was recreated to be fully responsive 
