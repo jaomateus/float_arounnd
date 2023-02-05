@@ -1,11 +1,11 @@
 ## Floaty 
 ### Le Wagon first project  - Nov 2022
 
-Floaty is a, Airbnb clone developed during my Web Development Bootcap at Le Wagon Amsterdam. 
+Floaty is an Airbnb clone developed during my Web Development Bootcap at Le Wagon Amsterdam. 
 
-The first version of Floaty was developed with only Ruby on Rails, HTML, CSS e Bootstrap. The only Javascript function it was done with Stimulus.
+The first version of Floaty was developed with only Ruby on Rails, HTML, CSS e Bootstrap. 
 
-As a way to improve my skills and to experiment other technologies, Floaty has been improved. It's still an ongoing project.
+I am using Floaty as a test project to implemet the new technologies I am lwarning. It is and it will an ongoing project. 
 
 List of improvements:
 
