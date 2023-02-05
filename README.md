@@ -10,7 +10,7 @@ As a way to improve my skills and to experiment other technologies, Floaty has b
 List of improvements:
 
 - Fev. 2023 - Started to work on a new vwersion with integrated React components.
--           - Working on full responsivenss as a way to improve my CSS skills 
+            - Working on full responsivenss as a way to improve my CSS skills 
 - Jan. 2023 - Updated the float list to be asyncronous using AJAX
 - The scroll down button was created with vailla Javascript.
 - The list of floaties and the search functionality was updated to be done with AJAX + Fetch
