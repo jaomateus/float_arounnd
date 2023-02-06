@@ -96,3 +96,7 @@ gem "bootstrap",  "~>5.2.0"
 gem "omniauth"
 gem "omniauth-facebook"
 gem 'omniauth-rails_csrf_protection', '~> 1.0'
+
+
+# React integration
+gem 'react-rails' 
